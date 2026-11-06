@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【基富利】美元利率變動型終身壽險｜新商品互動實戰訓練</title>
+    <style>
+        :root {
+            --kgi-blue: #003670;
+            --kgi-light-blue: #0a58ca;
+            --kgi-gold: #d4af37;
+            --kgi-gold-light: #f9eeb2;
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --success: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        .preview-notice {
+            background: linear-gradient(90deg, #b45309, #d97706);
+            color: #fff;
+            text-align: center;
+            padding: 8px 16px;
+            font-size: 0.88rem;
+            font-weight: 600;
+        }
+
+        header {
+            background: linear-gradient(135deg, #001f42 0%, #003670 50%, #0f172a 100%);
+            border-bottom: 3px solid var(--kgi-gold);
+            padding: 24px 20px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        .badge-top {
+            display: inline-block;
+            background: linear-gradient(90deg, #b48522, #f5d179, #b48522);
+            color: #001f42;
+            font-weight: 800;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            background: linear-gradient(to right, #ffffff, #f5d179);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 6px;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .tab-radio {
+            display: none;
+        }
+
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 16px 20px;
+            background: rgba(15, 23, 42, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid #334155;
+        }
+
+        .tab-label {
+            background: #1e293b;
+            color: var(--text-muted);
+            border: 1px solid #334155;
+            padding: 10px 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            user-select: none;
+        }
+
+        .tab-label:hover {
+            border-color: var(--kgi-gold);
+            color: #fff;
+        }
+
+        #nav-tab1:checked ~ .nav-tabs label[for="nav-tab1"],
+        #nav-tab2:checked ~ .nav-tabs label[for="nav-tab2"],
+        #nav-tab3:checked ~ .nav-tabs label[for="nav-tab3"],
+        #nav-tab4:checked ~ .nav-tabs label[for="nav-tab4"],
+        #nav-tab5:checked ~ .nav-tabs label[for="nav-tab5"] {
+            background: linear-gradient(135deg, var(--kgi-blue), #0a58ca);
+            color: #fff;
+            border-color: var(--kgi-gold);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.35);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 24px auto;
+            padding: 0 20px;
+        }
+
+        .module {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        #nav-tab1:checked ~ .container #module1,
+        #nav-tab2:checked ~ .container #module2,
+        #nav-tab3:checked ~ .container #module3,
+        #nav-tab4:checked ~ .container #module4,
+        #nav-tab5:checked ~ .container #module5 {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .proj-radio, .sheep-radio {
+            display: none;
+        }
+
+        .proj-nav {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 18px;
+        }
+
+        .proj-label {
+            background: #0f172a;
+            color: var(--text-muted);
+            border: 1px solid #334155;
+            padding: 10px 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.92rem;
+            transition: all 0.2s;
+        }
+
+        #proj-r1:checked ~ .proj-nav label[for="proj-r1"],
+        #proj-r2:checked ~ .proj-nav label[for="proj-r2"],
+        #proj-r3:checked ~ .proj-nav label[for="proj-r3"] {
+            background: linear-gradient(135deg, var(--kgi-blue), #0a58ca);
+            color: #fff;
+            border-color: var(--kgi-gold);
+        }
+
+        .proj-panel {
+            display: none;
+        }
+
+        #proj-r1:checked ~ #proj-panel-1,
+        #proj-r2:checked ~ #proj-panel-2,
+        #proj-r3:checked ~ #proj-panel-3 {
+            display: block;
+        }
+
+        .sheep-selector {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .sheep-label {
+            background: #0f172a;
+            border: 1px solid #334155;
+            color: var(--text-muted);
+            padding: 12px 8px;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: center;
+            font-weight: 700;
+            transition: all 0.2s;
+            display: block;
+        }
+
+        #sheep-r1:checked ~ .sheep-selector label[for="sheep-r1"],
+        #sheep-r2:checked ~ .sheep-selector label[for="sheep-r2"],
+        #sheep-r3:checked ~ .sheep-selector label[for="sheep-r3"],
+        #sheep-r4:checked ~ .sheep-selector label[for="sheep-r4"] {
+            background: rgba(212, 175, 55, 0.18);
+            border-color: var(--kgi-gold);
+            color: var(--kgi-gold-light);
+        }
+
+        .sheep-panel {
+            display: none;
+            background: #0f172a;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--kgi-gold);
+        }
+
+        #sheep-r1:checked ~ #sheep-panel-1,
+        #sheep-r2:checked ~ #sheep-panel-2,
+        #sheep-r3:checked ~ #sheep-panel-3,
+        #sheep-r4:checked ~ #sheep-panel-4 {
+            display: block;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid #334155;
+            border-radius: 14px;
+            padding: 22px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--kgi-gold-light);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 10px;
+        }
+
+        .stat-banner {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .stat-box {
+            background: linear-gradient(145deg, #1e293b, #0f172a);
+            border: 1px solid var(--kgi-gold);
+            border-radius: 12px;
+            padding: 18px;
+            text-align: center;
+        }
+
+        .stat-box .label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .stat-box .val {
+            font-size: 1.85rem;
+            font-weight: 800;
+            color: var(--kgi-gold);
+        }
+
+        .stat-box .sub {
+            font-size: 0.8rem;
+            color: #cbd5e1;
+            margin-top: 4px;
+        }
+
+        .nine-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        details.feature-item {
+            background: linear-gradient(145deg, #1e293b, #152033);
+            border: 1px solid #334155;
+            border-left: 4px solid var(--kgi-gold);
+            border-radius: 10px;
+            padding: 16px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        details.feature-item:hover {
+            background: #26354d;
+            border-color: var(--kgi-gold);
+        }
+
+        details.feature-item summary {
+            color: #fff;
+            font-size: 1.05rem;
+            font-weight: 700;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        details.feature-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        details.feature-item .f-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
+
+        details.feature-item .f-more {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed #475569;
+            font-size: 0.88rem;
+            color: var(--kgi-gold-light);
+        }
+
+        .sim-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            background: #0f172a;
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid #334155;
+            margin-bottom: 20px;
+        }
+
+        .control-group {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .control-group label {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--kgi-gold-light);
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        select, input[type="number"] {
+            width: 100%;
+            padding: 10px 12px;
+            background: #1e293b;
+            border: 1px solid #475569;
+            color: #fff;
+            border-radius: 8px;
+            font-size: 0.95rem;
+        }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 14px;
+            background: #334155;
+            border-radius: 7px;
+            outline: none;
+            margin: 14px 0;
+            padding: 0;
+            border: none;
+            touch-action: pan-y;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #fde047, #d4af37);
+            border: 2px solid #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+            cursor: pointer;
+        }
+
+        .step-btn {
+            background: #1e293b;
+            border: 1px solid var(--kgi-gold);
+            color: var(--kgi-gold-light);
+            font-weight: bold;
+            font-size: 0.95rem;
+            padding: 8px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .step-btn:active {
+            background: var(--kgi-gold);
+            color: #001f42;
+            transform: scale(0.96);
+        }
+
+        .quick-chip {
+            background: #0f172a;
+            border: 1px solid #475569;
+            color: #cbd5e1;
+            font-size: 0.82rem;
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 16px;
+            cursor: pointer;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            transition: all 0.2s;
+        }
+
+        .quick-chip:active, .quick-chip.active {
+            background: rgba(212, 175, 55, 0.2);
+            border-color: var(--kgi-gold);
+            color: var(--kgi-gold-light);
+        }
+
+        .checkbox-group {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            background: #1e293b;
+            padding: 6px 12px;
+            border-radius: 6px;
+            border: 1px solid #475569;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            font-size: 0.9rem;
+        }
+
+        th, td {
+            padding: 12px 10px;
+            text-align: center;
+            border-bottom: 1px solid #334155;
+        }
+
+        th {
+            background: #0f172a;
+            color: var(--kgi-gold-light);
+            font-weight: 700;
+        }
+
+        tr:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .script-box {
+            background: #0f172a;
+            border-left: 4px solid var(--kgi-light-blue);
+            padding: 16px;
+            border-radius: 0 10px 10px 0;
+            margin-bottom: 14px;
+        }
+
+        .script-q {
+            font-weight: 700;
+            color: #60a5fa;
+            margin-bottom: 8px;
+            font-size: 1.05rem;
+        }
+
+        .script-a {
+            color: #e2e8f0;
+            font-size: 0.95rem;
+        }
+
+        .quiz-item {
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 16px;
+        }
+
+        .quiz-q {
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 12px;
+            color: var(--kgi-gold-light);
+        }
+
+        .quiz-radio {
+            display: none;
+        }
+
+        .quiz-opt-label {
+            background: #1e293b;
+            border: 1px solid #475569;
+            color: #fff;
+            padding: 10px 14px;
+            border-radius: 8px;
+            text-align: left;
+            cursor: pointer;
+            font-size: 0.92rem;
+            transition: all 0.2s;
+            display: block;
+        }
+
+        .quiz-opt-label:hover {
+            border-color: var(--kgi-gold);
+        }
+
+        .quiz-radio.ans-right:checked + .quiz-opt-label {
+            background: rgba(16, 185, 129, 0.25);
+            border-color: var(--success);
+            color: #6ee7b7;
+            font-weight: 700;
+        }
+
+        .quiz-radio.ans-wrong:checked + .quiz-opt-label {
+            background: rgba(239, 68, 68, 0.25);
+            border-color: var(--danger);
+            color: #fca5a5;
+        }
+
+        .quiz-exp {
+            display: none;
+            margin-top: 10px;
+            padding: 12px 14px;
+            background: rgba(16, 185, 129, 0.12);
+            border: 1px solid var(--success);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #e2e8f0;
+        }
+
+        .quiz-item input[type="radio"]:checked ~ .quiz-exp {
+            display: block;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.78rem;
+            font-weight: 600;
+        }
+        .tag-gold { background: rgba(212, 175, 55, 0.2); color: var(--kgi-gold-light); }
+        .tag-blue { background: rgba(10, 88, 202, 0.3); color: #93c5fd; }
+        .tag-green { background: rgba(16, 185, 129, 0.2); color: #6ee7b7; }
+
+        footer {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 40px;
+            padding: 20px;
+            border-top: 1px solid #334155;
+        }
+
+        @media (max-width: 600px) {
+            .sheep-selector { grid-template-columns: repeat(2, 1fr); }
+            header h1 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="badge-top">凱基人壽 北二區域中心｜業務實戰互動訓練系統</div>
+    <h1>【基富利】美元利率變動型終身壽險</h1>
+    <p>基業穩固・富足規劃・利享未來｜兼具「高現價累積」與業界首創「享樂權」之終極王牌</p>
+</header>
+
+<input type="radio" name="main-nav" id="nav-tab1" class="tab-radio" checked>
+<input type="radio" name="main-nav" id="nav-tab2" class="tab-radio">
+<input type="radio" name="main-nav" id="nav-tab3" class="tab-radio">
+<input type="radio" name="main-nav" id="nav-tab4" class="tab-radio">
+<input type="radio" name="main-nav" id="nav-tab5" class="tab-radio">
+
+<nav class="nav-tabs">
+    <label for="nav-tab1" class="tab-label">🌟 模組一：商品九宮格與規格</label>
+    <label for="nav-tab2" class="tab-label">🔄 模組二：獨創「享樂權」雙軌解析</label>
+    <label for="nav-tab3" class="tab-label">🧮 模組三：折扣與專案試算器</label>
+    <label for="nav-tab4" class="tab-label">⚔️ 模組四：實戰話術與商品PK</label>
+    <label for="nav-tab5" class="tab-label">🏆 模組五：獎金模擬與闖關測驗</label>
+</nav>
+
+<div class="container">
+
+    <!-- 模組一 -->
+    <div id="module1" class="module">
+        <div class="stat-banner">
+            <div class="stat-box">
+                <div class="label">宣告利率 (2026.11)</div>
+                <div class="val">4.30%</div>
+                <div class="sub">高宣告累積更快</div>
+            </div>
+            <div class="stat-box">
+                <div class="label">預定利率</div>
+                <div class="val">2.50%</div>
+                <div class="sub">穩健打底保障</div>
+            </div>
+            <div class="stat-box">
+                <div class="label">最高保費折減</div>
+                <div class="val">8.0%</div>
+                <div class="sub">高保費5%+轉帳1%+電子1%+有效客1%</div>
+            </div>
+            <div class="stat-box">
+                <div class="label">TM值 / 核保優勢</div>
+                <div class="val">400</div>
+                <div class="sub">第一類商品・原則無體檢受理</div>
+            </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 24px;">
+            <div class="card-title">💡 為什麼現在要推「基富利」？（市場切入點）</div>
+            <div class="grid-2" style="margin-bottom: 0;">
+                <div style="background: rgba(10, 88, 202, 0.15); border: 1px solid #1e40af; padding: 16px; border-radius: 10px;">
+                    <h4 style="color: #60a5fa; margin-bottom: 8px;">🚀 投資（衝刺）— 如：活利鑫動</h4>
+                    <p style="font-size: 0.9rem; color: #cbd5e1;">近月北二中心「活利鑫動」占比高達 41.9%~57.8%，客戶熱度高！但投資是用閒錢去博每天 5,000 元大餐與出國旅遊的機會，<strong>贏了生活升級，輸了日子照過</strong>。</p>
+                </div>
+                <div style="background: rgba(212, 175, 55, 0.12); border: 1px solid var(--kgi-gold); padding: 16px; border-radius: 10px;">
+                    <h4 style="color: var(--kgi-gold-light); margin-bottom: 8px;">🛡️ 理財（保底）— 【基富利】登場意義</h4>
+                    <p style="font-size: 0.9rem; color: #cbd5e1;"><strong>「你永遠不知道市場大跌哪天來，別拿退休吃飯錢去跟股市賭！」</strong>鎖定未來每天 1,000 元基本生活費打死不動，不受市場波動影響，把資產主控權握在手裡。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">🎯 基富利「商品特色九宮格」（點擊任一卡片可展開實戰話術！）</div>
+            <div class="nine-grid">
+                <details class="feature-item">
+                    <summary>1. 完整繳期規劃 <span class="tag tag-gold">6 / 10 / 20年 ▼</span></summary>
+                    <div class="f-desc">6年繳(0~76歲)、10年繳(0~70歲)、20年繳(0~60歲)，投保限額 3,000~600萬美元。</div>
+                    <div class="f-more">💬 <strong>實戰切入：</strong>短中長期資金皆可配置！0歲金孫到76歲熟齡長輩都能規劃（註：75、76歲不適用享樂權）。</div>
+                </details>
+                <details class="feature-item">
+                    <summary>2. 高宣告 / 預定利率 <span class="tag tag-gold">4.3% / 2.5% ▼</span></summary>
+                    <div class="f-desc">預定利率 2.50% 打底，宣告利率高達 4.30%，增值回饋分享金讓保價與保障同步飆升。</div>
+                    <div class="f-more">💬 <strong>實戰切入：</strong>遠勝舊款金美/享富年年（3.7%），選擇「以繳清保險方式增加保額」複利效果最威猛！</div>
+                </details>
+                <details class="feature-item">
+                    <summary>3. 利變最高 8% 折扣 <span class="tag tag-green">重磅回歸 ▼</span></summary>
+                    <div class="f-desc">轉帳1% + 電子保單1% + 有效保戶1%（重磅回歸！）+ 高保費最高5% = 最高折減 8%。</div>
+                    <div class="f-more">💬 <strong>實戰切入：</strong>老客戶加保直接多送 1% 折扣！高保費門檻（6P滿10萬美、10P滿5萬美、20P滿1.2萬美）即享最高 5%！</div>
+                </details>
+                <details class="feature-item">
+                    <summary>4. 增值保本速度快 <span class="tag tag-blue">第5年保本 ▼</span></summary>
+                    <div class="f-desc">以45歲男8%折扣為例：6年繳第5年度末即保本(104%)！10年繳第7年、20年繳第10年保本。</div>
+                    <div class="f-more">💬 <strong>實戰切入：</strong>客戶最怕錢卡住太久！告訴客戶：「6年期還沒繳完，第5年底現金價值就超過您繳的保費了！」</div>
+                </details>
+                <details class="feature-item">
+                    <summary>5. 享樂權自由選 <span class="tag tag-gold">凱基獨創 ▼</span></summary>
+                    <div class="f-desc">65~80歲自由選擇何時啟動領生存金！6P最高還本率13.2%(至85歲達14.4%)、10P達12.1%、20P達9.6%。</div>
+                    <div class="f-more">💬 <strong>實戰切入：</strong>現在不用急著決定何時退休！到了65~80歲需要用錢再啟動生存金，每年領回總保費約 10~14%！</div>
+                </details>
+                <details class="feature-item">
+                    <summary>6. 原則免體檢 <span class="tag tag-green">開拓客群最有利 ▼</span></summary>
+                    <div class="f-desc">列屬「第一類商品」，原則免體檢受理；惟如有告知既往病史/現症、次標延拒、理賠史等，核保仍得要求就診資料或體檢。</div>
+                    <div class="f-more">💬 <strong>實戰切入：</strong>高資產長輩最討厭去醫院體檢！健康告知正常情況下原則免體檢受理，方便高額規劃。</div>
+                </details>
+                <details class="feature-item">
+                    <summary>7. 雙豁免功能 <span class="tag tag-blue">雙重安全網 ▼</span></summary>
+                    <div class="f-desc">內建被保險人「2~6級失能豁免保費」，還可外加附加「美好加在」豁免保險費附約！</div>
+                    <div class="f-more">💬 <strong>實戰切入：</strong>幫小孩或金孫買保單時，大人（要保人）附加豁免附約，被保人自帶2~6級失能豁免，真正雙重保障。</div>
+                </details>
+                <details class="feature-item">
+                    <summary>8. 類信託功能 <span class="tag tag-blue">身故金分期 ▼</span></summary>
+                    <div class="f-desc">身故保險金可規劃分期定期給付，穩定照顧遺族或未成年孫子女，防止一次揮霍。</div>
+                    <div class="f-more">💬 <strong>實戰切入：</strong>免付銀行信託管理費，就能達成「給多少、分幾年給」的類信託傳承效果！</div>
+                </details>
+                <details class="feature-item">
+                    <summary>9. 生命末期給付 <span class="tag tag-blue">溫暖守護 ▼</span></summary>
+                    <div class="f-desc">提供生命末期提前給付保險金，支應終期醫療與安寧照護，維持生命尊嚴。</div>
+                    <div class="f-more">💬 <strong>實戰切入：</strong>不僅照顧身後傳承，在人生最後階段也能提前動用保險金照顧自己。</div>
+                </details>
+            </div>
+        </div>
+    </div>
+
+    <!-- 模組二 -->
+    <div id="module2" class="module">
+        <div class="card" style="margin-bottom: 24px;">
+            <div class="card-title">🔄 凱基首創「享樂權」：一張保單，兩種進化型態！</div>
+            <p style="margin-bottom: 16px; color: #cbd5e1;">過去客戶買還本險怕太早領、買增額險要領錢又得每年辦部分解約。<strong>《基富利》讓客戶先全力衝刺保價，到了 65~80 歲再決定要不要切換成「自動提款機」！</strong></p>
+
+            <div class="grid-2">
+                <div style="background: linear-gradient(145deg, #2a1215, #1e293b); border: 2px solid #ef4444; border-radius: 12px; padding: 20px;">
+                    <span class="tag" style="background:#ef4444; color:#fff; margin-bottom:8px;">路線 A：執行享樂權</span>
+                    <h3 style="color: #fca5a5; margin-bottom: 10px;">🔥 強化版【年年系列】</h3>
+                    <ul style="padding-left: 20px; font-size: 0.92rem; color: #e2e8f0;">
+                        <li><strong>自由選擇享樂年齡：</strong>65歲~80歲之間任選一年啟動，年年領生存金至110歲。</li>
+                        <li><strong>宣告利率更優：</strong>4.3% 遠勝舊商品（金美/享富年年 3.7%）。</li>
+                        <li><strong>給付時點超彈性：</strong>舊款悠退年年/金美年年只能固定選 55、60、65歲，基富利 65~80歲隨你選！</li>
+                        <li><strong>先累積再領，還本率超甜：</strong>有足夠時間複利滾存，6P每年可領總保費約 <strong>9.7% ~ 14.4%</strong>（金美僅2.3~3.3%、悠退年年7~10%）。</li>
+                    </ul>
+                </div>
+
+                <div style="background: linear-gradient(145deg, #17122a, #1e293b); border: 2px solid #8b5cf6; border-radius: 12px; padding: 20px;">
+                    <span class="tag" style="background:#8b5cf6; color:#fff; margin-bottom:8px;">路線 B：不執行享樂權</span>
+                    <h3 style="color: #c4b5fd; margin-bottom: 10px;">💎 強化版【鑫多利】</h3>
+                    <ul style="padding-left: 20px; font-size: 0.92rem; color: #e2e8f0;">
+                        <li><strong>持續複利滾存：</strong>若客戶退休時資金充裕、無金流需求，可選擇不執行。</li>
+                        <li><strong>現價與保障極大化：</strong>以 4.3% 宣告利率持續以增額繳清方式滾大保價（自己用）與壽險保障（留給家人預留稅源）。</li>
+                        <li><strong>解決傳統增額痛點：</strong>傳統增額保單無法每年主動給付，想領錢得每年辦部分解約；基富利保留隨時在 65~80歲啟動金流的權利！</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">📋 「享樂權」條款規則必考重點（業務同仁務必熟記）</div>
+            <div class="grid-3" style="margin-bottom: 0;">
+                <div style="background:#0f172a; padding:16px; border-radius:10px; border-top:3px solid var(--kgi-gold);">
+                    <h4 style="color:var(--kgi-gold-light); margin-bottom:8px;">⏰ A. 申請期間與條件</h4>
+                    <p style="font-size:0.9rem; color:#cbd5e1;">
+                        1. 須<strong>繳費期間屆滿</strong>。<br>
+                        2. 被保險人保險年齡達 <strong>65歲且未逾80歲</strong>。<br>
+                        3. 於首次可申請之「享樂日」<strong>60日前至30日前</strong>，以書面向公司提出申請。<br>
+                        <span style="color:#f87171; font-weight:700;">⚠️ 注意：6年繳投保年齡 75歲及76歲者，不適用享樂權！</span>
+                    </p>
+                </div>
+                <div style="background:#0f172a; padding:16px; border-radius:10px; border-top:3px solid #38bdf8;">
+                    <h4 style="color:#38bdf8; margin-bottom:8px;">💰 B. 生存保險金怎麼算？</h4>
+                    <p style="font-size:0.9rem; color:#cbd5e1;">
+                        依「投保年齡」及「享樂年齡」轉換係數轉為「享樂權保險金額」後，依（基本保額+累計增加保額）以每萬元為單位乘以：<br>
+                        • <strong>到達 91歲前：每年領 5%</strong><br>
+                        • <strong>到達 91歲起：每年領 0.1%</strong><br>
+                        （給付至保險年齡達 110歲之保單週年日止）
+                    </p>
+                </div>
+                <div style="background:#0f172a; padding:16px; border-radius:10px; border-top:3px solid #f43f5e;">
+                    <h4 style="color:#fb7185; margin-bottom:8px;">🔒 C. 執行後限制</h4>
+                    <p style="font-size:0.9rem; color:#cbd5e1;">
+                        一旦已執行「享樂權」者，要保人<strong>不得再申請變更或取消</strong>指定之享樂日，亦<strong>不得主張撤銷或終止</strong>享樂權之執行。請務必在客戶申請前確認其金流規劃！
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 模組三 -->
+    <div id="module3" class="module">
+        <div class="card" style="margin-bottom: 24px;">
+            <div class="card-title">🐑 實戰工具 A：三大黃金銷售專案展示器（點擊下方按鈕直接切換！）</div>
+
+            <input type="radio" name="proj-switch" id="proj-r1" class="proj-radio" checked>
+            <input type="radio" name="proj-switch" id="proj-r2" class="proj-radio">
+            <input type="radio" name="proj-switch" id="proj-r3" class="proj-radio">
+
+            <div class="proj-nav">
+                <label for="proj-r1" class="proj-label">🐑 羊羊的幸福退休計畫 (40歲男・小額~大額)</label>
+                <label for="proj-r2" class="proj-label">💼 基富利退休/億萬專案 (45歲男・年繳10萬美)</label>
+                <label for="proj-r3" class="proj-label">👶 傳世金孫隔代贈與專案 (0歲男・保額40萬美)</label>
+            </div>
+
+            <div id="proj-panel-1" class="proj-panel">
+                <p style="color:#cbd5e1; font-size:0.92rem; margin-bottom:12px;">📌 <strong>設定範例：</strong>40歲男性，預定2.5% / 宣告4.3%，回饋金採增額繳清，<strong>65歲起執行享樂權領生存金</strong>：</p>
+
+                <input type="radio" name="sheep-switch" id="sheep-r1" class="sheep-radio" checked>
+                <input type="radio" name="sheep-switch" id="sheep-r2" class="sheep-radio">
+                <input type="radio" name="sheep-switch" id="sheep-r3" class="sheep-radio">
+                <input type="radio" name="sheep-switch" id="sheep-r4" class="sheep-radio">
+
+                <div class="sheep-selector">
+                    <label for="sheep-r1" class="sheep-label">💤 懶羊羊<br><span style="font-size:0.8rem; font-weight:400;">年繳 $1,000 美 (3%折)</span></label>
+                    <label for="sheep-r2" class="sheep-label">👓 慢羊羊<br><span style="font-size:0.8rem; font-weight:400;">年繳 $3,000 美 (5%折)</span></label>
+                    <label for="sheep-r3" class="sheep-label">🔔 喜羊羊 (主力推薦)<br><span style="font-size:0.8rem; font-weight:400;">年繳 $12,000 美 (6%折)</span></label>
+                    <label for="sheep-r4" class="sheep-label">🎀 美羊羊 (高資產)<br><span style="font-size:0.8rem; font-weight:400;">年繳 $100,000 美 (8%折)</span></label>
+                </div>
+
+                <div id="sheep-panel-1" class="sheep-panel">
+                    <h3 style="color:var(--kgi-gold-light); margin-bottom:12px;">💤 懶羊羊（小資入門方案｜原始年繳 1,000 美元 ➔ 3%折扣後實繳 970 美元）</h3>
+                    <div class="grid-2" style="margin-bottom:12px;">
+                        <div style="background:#1e293b; padding:16px; border-radius:10px; border-left:4px solid var(--kgi-gold);">
+                            <h4 style="color:var(--kgi-gold-light); margin-bottom:8px;">🔹 6年期 (6P)｜保額 5,045 美元</h4>
+                            <ul style="padding-left:18px; font-size:0.9rem;">
+                                <li><strong>總繳保費：</strong>5,820 美元</li>
+                                <li><strong>65歲起每年領生存金：</strong><span style="color:#10b981; font-weight:700;">661 美元 / 年</span></li>
+                                <li><strong>第 6 年現金價值：</strong>6,010 美元（滿期即保本！）</li>
+                            </ul>
+                        </div>
+                        <div style="background:#1e293b; padding:16px; border-radius:10px; border-left:4px solid #38bdf8;">
+                            <h4 style="color:#38bdf8; margin-bottom:8px;">🔹 10年期 (10P)｜保額 7,978 美元</h4>
+                            <ul style="padding-left:18px; font-size:0.9rem;">
+                                <li><strong>總繳保費：</strong>9,700 美元</li>
+                                <li><strong>65歲起每年領生存金：</strong><span style="color:#10b981; font-weight:700;">1,009 美元 / 年</span></li>
+                                <li><strong>第 10 年現金價值：</strong>10,936 美元</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="sheep-panel-2" class="sheep-panel">
+                    <h3 style="color:var(--kgi-gold-light); margin-bottom:12px;">👓 慢羊羊（穩健累積方案｜原始年繳 3,000 美元 ➔ 5%折扣後實繳 2,850 美元）</h3>
+                    <div class="grid-2" style="margin-bottom:12px;">
+                        <div style="background:#1e293b; padding:16px; border-radius:10px; border-left:4px solid var(--kgi-gold);">
+                            <h4 style="color:var(--kgi-gold-light); margin-bottom:8px;">🔹 6年期 (6P)｜保額 15,131 美元</h4>
+                            <ul style="padding-left:18px; font-size:0.9rem;">
+                                <li><strong>總繳保費：</strong>17,100 美元</li>
+                                <li><strong>65歲起每年領生存金：</strong><span style="color:#10b981; font-weight:700;">1,981 美元 / 年</span></li>
+                            </ul>
+                        </div>
+                        <div style="background:#1e293b; padding:16px; border-radius:10px; border-left:4px solid #38bdf8;">
+                            <h4 style="color:#38bdf8; margin-bottom:8px;">🔹 10年期 (10P)｜保額 23,927 美元</h4>
+                            <ul style="padding-left:18px; font-size:0.9rem;">
+                                <li><strong>總繳保費：</strong>28,500 美元</li>
+                                <li><strong>65歲起每年領生存金：</strong><span style="color:#10b981; font-weight:700;">3,027 美元 / 年</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="sheep-panel-3" class="sheep-panel">
+                    <h3 style="color:var(--kgi-gold-light); margin-bottom:12px;">🔔 喜羊羊（主力熱銷推薦！｜原始年繳 12,000 美元 ➔ 6%折扣後實繳 11,280 美元）</h3>
+                    <div class="grid-2" style="margin-bottom:12px;">
+                        <div style="background:#1e293b; padding:16px; border-radius:10px; border-left:4px solid var(--kgi-gold);">
+                            <h4 style="color:var(--kgi-gold-light); margin-bottom:8px;">🔹 6年期 (6P)｜保額 60,516 美元</h4>
+                            <ul style="padding-left:18px; font-size:0.9rem;">
+                                <li><strong>總繳保費：</strong>67,680 美元</li>
+                                <li><strong>65歲起每年領生存金：</strong><span style="color:#10b981; font-weight:700;">7,925 美元 / 年</span></li>
+                            </ul>
+                        </div>
+                        <div style="background:#1e293b; padding:16px; border-radius:10px; border-left:4px solid #38bdf8;">
+                            <h4 style="color:#38bdf8; margin-bottom:8px;">🔹 10年期 (10P)｜保額 95,697 美元</h4>
+                            <ul style="padding-left:18px; font-size:0.9rem;">
+                                <li><strong>總繳保費：</strong>112,800 美元</li>
+                                <li><strong>65歲起每年領生存金：</strong><span style="color:#10b981; font-weight:700;">12,106 美元 / 年</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="sheep-panel-4" class="sheep-panel">
+                    <h3 style="color:var(--kgi-gold-light); margin-bottom:12px;">🎀 美羊羊（尊榮高資產方案｜原始年繳 100,000 美元 ➔ 8%折扣後實繳 92,000 美元）</h3>
+                    <div class="grid-2" style="margin-bottom:12px;">
+                        <div style="background:#1e293b; padding:16px; border-radius:10px; border-left:4px solid var(--kgi-gold);">
+                            <h4 style="color:var(--kgi-gold-light); margin-bottom:8px;">🔹 6年期 (6P)｜保額 504,288 美元</h4>
+                            <ul style="padding-left:18px; font-size:0.9rem;">
+                                <li><strong>總繳保費：</strong>552,000 美元</li>
+                                <li><strong>65歲起每年領生存金：</strong><span style="color:#10b981; font-weight:700;">66,039 美元 / 年</span></li>
+                            </ul>
+                        </div>
+                        <div style="background:#1e293b; padding:16px; border-radius:10px; border-left:4px solid #38bdf8;">
+                            <h4 style="color:#38bdf8; margin-bottom:8px;">🔹 10年期 (10P)｜保額 797,452 美元</h4>
+                            <ul style="padding-left:18px; font-size:0.9rem;">
+                                <li><strong>總繳保費：</strong>920,000 美元</li>
+                                <li><strong>65歲起每年領生存金：</strong><span style="color:#10b981; font-weight:700;">100,874 美元 / 年</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="proj-panel-2" class="proj-panel">
+                <p style="color:#cbd5e1; font-size:0.92rem; margin-bottom:14px;">📌 <strong>設定範例：</strong>45歲男性投保6年期，折扣後實繳年繳 <strong>100,000 美元</strong>，8%最高折扣。</p>
+                <div class="grid-2">
+                    <div style="background:#0f172a; padding:18px; border-radius:10px; border-left:4px solid var(--kgi-gold);">
+                        <h4 style="color:var(--kgi-gold-light); margin-bottom:10px;">📈 選擇【不執行享樂權】— 複利增值傳承</h4>
+                        <ul style="padding-left:18px; font-size:0.9rem; color:#e2e8f0;">
+                            <li><strong>第 5 年度末 (49歲)：</strong>現價 $519,232 美 (104%)，<strong>第5年即保本！</strong></li>
+                            <li><strong>第 20 年度末 (64歲)：</strong>現價 $1,177,267 美，65歲突破 <strong>4,000萬台幣</strong>。</li>
+                        </ul>
+                    </div>
+                    <div style="background:#0f172a; padding:18px; border-radius:10px; border-left:4px solid #10b981;">
+                        <h4 style="color:#6ee7b7; margin-bottom:10px;">💵 選擇【64/65歲執行享樂權】— 退休活水金流</h4>
+                        <ul style="padding-left:18px; font-size:0.9rem; color:#e2e8f0;">
+                            <li><strong>第 20 年度末 (64歲)：</strong>領生存金 <strong>$58,306 美元</strong> (9.7%)。</li>
+                            <li><strong>第 41 年度末 (85歲)：</strong>領生存金 <strong>$86,159 美元</strong> (高達 <strong>14.4%</strong>)。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="proj-panel-3" class="proj-panel">
+                <p style="color:#cbd5e1; font-size:0.92rem; margin-bottom:14px;">📌 <strong>王先生喜獲金孫案例：</strong>善用每年 <strong>244萬台幣贈與免稅額</strong>，幫 0歲金孫規劃保額 40萬美元（6年期）。</p>
+                <div class="grid-2">
+                    <div style="background:#0f172a; padding:18px; border-radius:10px; border-left:4px solid #38bdf8;">
+                        <h4 style="color:#38bdf8; margin-bottom:10px;">🌳 隔代傳承複利神蹟（不執行享樂權）</h4>
+                        <ul style="padding-left:18px; font-size:0.9rem; color:#e2e8f0;">
+                            <li><strong>第 5 年度末 (4歲)：</strong>現價 $381,120 美 (101%)，<strong>第5年即保本！</strong></li>
+                            <li><strong>50歲 (第51年)：</strong>突破 <strong>1億台幣</strong>。</li>
+                            <li><strong>89歲 (第90年)：</strong>突破 <strong>5億台幣</strong>。</li>
+                        </ul>
+                    </div>
+                    <div style="background:#0f172a; padding:18px; border-radius:10px; border-left:4px solid var(--kgi-gold);">
+                        <h4 style="color:var(--kgi-gold-light); margin-bottom:10px;">🎁 若金孫 65歲啟動享樂權</h4>
+                        <ul style="padding-left:18px; font-size:0.9rem; color:#e2e8f0;">
+                            <li><strong>每年可領生存金高達 $28.5萬 ~ $47.7萬美元（每年領 900萬 ~ 1,500萬元）！</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">🧮 實戰工具 B：保費折減試算器（最高 8% 折扣）</div>
+            <div class="sim-controls">
+                <div class="control-group">
+                    <label>選擇繳費年期</label>
+                    <select id="discTerm" onchange="calcDiscount()">
+                        <option value="6">6年期 (6P)</option>
+                        <option value="10">10年期 (10P)</option>
+                        <option value="20">20年期 (20P)</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label>輸入原始年繳保費 (美元)</label>
+                    <input type="number" id="rawPrem" value="100000" min="1000" step="1000" oninput="calcDiscount()">
+                </div>
+                <div class="control-group" style="flex: 2;">
+                    <label>勾選附加折扣條件（各 1%）</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label"><input type="checkbox" id="chkBank" checked onchange="calcDiscount()"> 自動轉帳 (1%)</label>
+                        <label class="checkbox-label"><input type="checkbox" id="chkEpol" checked onchange="calcDiscount()"> 電子保單 (1%)</label>
+                        <label class="checkbox-label"><input type="checkbox" id="chkOld" checked onchange="calcDiscount()"> 有效保戶 (1%)</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stat-banner" style="margin-bottom:0;">
+                <div class="stat-box">
+                    <div class="label">合計總折減率</div>
+                    <div class="val" id="resTotalDisc" style="color:#10b981;">8%</div>
+                </div>
+                <div class="stat-box">
+                    <div class="label">折扣後實繳年繳保費</div>
+                    <div class="val" id="resNetPrem">$92,000</div>
+                </div>
+                <div class="stat-box">
+                    <div class="label">總繳期累計省下保費</div>
+                    <div class="val" id="resSaveTotal">$48,000</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 模組四 -->
+    <div id="module4" class="module">
+        <div class="card" style="margin-bottom: 24px;">
+            <div class="card-title">💬 黃金銷售金句與異議處理</div>
+            <div class="script-box">
+                <div class="script-q">🗣️ 經典比喻：「水桶 vs 水井」養老哲學</div>
+                <div class="script-a">「用銀行裡的錢來養老，就像喝一桶水；用保險裡的錢來養老，就像在自家後院挖一口井，源源不絕且與生命等長！《基富利》的『享樂權』就是幫您挖好這口井。」</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">⚔️ 6P主力商品 40歲男規格比較</div>
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr style="background: #002b5c; color: #fff;">
+                            <th>商品</th>
+                            <th>紅運富御</th>
+                            <th>鑫享世承 (台幣)</th>
+                            <th>鑫長鴻</th>
+                            <th>美利盈家</th>
+                            <th style="background: #c2410c;">基富利 (NEW)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>預定/宣告</td>
+                            <td>2.75% / 分紅85%</td>
+                            <td>2.0% / 2.4%</td>
+                            <td>2.8% / 4.3%</td>
+                            <td>2.5% / 4.3%</td>
+                            <td style="color:#fde047; font-weight:bold;">2.5% / 4.3%</td>
+                        </tr>
+                        <tr>
+                            <td>體檢規則</td>
+                            <td>單獨累計</td>
+                            <td>單獨累計</td>
+                            <td>單獨累計</td>
+                            <td>G1類共同累積</td>
+                            <td style="color:#fde047; font-weight:bold;">第一類・原則免體檢</td>
+                        </tr>
+                        <tr>
+                            <td>TM值</td>
+                            <td>250</td>
+                            <td>250</td>
+                            <td>250</td>
+                            <td>350</td>
+                            <td style="color:#10b981; font-weight:bold;">400</td>
+                        </tr>
+                        <tr>
+                            <td>最高折扣</td>
+                            <td>3.5%</td>
+                            <td>3%</td>
+                            <td>7%</td>
+                            <td>5.5%</td>
+                            <td style="color:#10b981; font-weight:bold;">8%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- 模組五 -->
+    <div id="module5" class="module">
+        <div class="card" style="margin-bottom: 24px;">
+            <div class="card-title">💰 業務專屬激勵：基富利「獎金無上限」試算</div>
+            
+            <div class="sim-controls" style="align-items: center; margin-bottom: 16px;">
+                <div class="control-group" style="flex: 1; min-width: 260px;">
+                    <label style="font-size: 1rem; color: var(--kgi-gold);">🎯 選擇規劃年期：</label>
+                    <select id="bonusTerm" onchange="calcBonus()" style="font-size: 1rem; font-weight: bold;">
+                        <option value="6">6 年期 (FYC 13.5%)</option>
+                        <option value="10" selected>10 年期 (FYC 22.5%)</option>
+                        <option value="20">20 年期 (FYC 37.0%)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- 手機專屬觸控滑桿 -->
+            <div class="sim-controls" style="flex-direction: column; align-items: stretch; background:#0f172a; padding:18px; border-radius:12px; border:1px solid #334155;">
+                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; margin-bottom:12px;">
+                    <label style="font-size:1.05rem; font-weight:700; color:var(--kgi-gold-light); margin:0;">
+                        🎰 累計獎勵保費：<span id="premSliderVal" style="font-size:1.55rem; color:#fde047; font-weight:800;">70,000</span> 美元
+                    </label>
+                    <div style="display:flex; gap:8px;">
+                        <button type="button" class="step-btn" onclick="adjustSlider(-5000)">➖ 5千</button>
+                        <button type="button" class="step-btn" onclick="adjustSlider(5000)">➕ 5千</button>
+                    </div>
+                </div>
+
+                <div id="touchSliderContainer" style="position:relative; width:100%; height:44px; display:flex; align-items:center; cursor:pointer; touch-action:none; -webkit-user-select:none; user-select:none;">
+                    <div id="touchTrack" style="position:absolute; width:100%; height:12px; background:#334155; border-radius:6px; overflow:hidden;">
+                        <div id="touchFill" style="height:100%; width:42.85%; background:linear-gradient(90deg, #d4af37, #fde047); border-radius:6px;"></div>
+                    </div>
+                    <div id="touchThumb" style="position:absolute; left:calc(42.85% - 18px); width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg, #ffffff, #fde047); border:3px solid #d4af37; box-shadow:0 3px 10px rgba(0,0,0,0.6); display:flex; align-items:center; justify-content:center;">
+                        <div style="width:10px; height:10px; border-radius:50%; background:#003670;"></div>
+                    </div>
+                </div>
+                <input type="hidden" id="bonusSlider" value="70000">
+
+                <div style="margin-top:12px;">
+                    <span style="font-size:0.82rem; color:var(--text-muted); display:block; margin-bottom:8px;">📱 手機快捷點選級距門檻：</span>
+                    <div style="display:flex; gap:6px; flex-wrap:wrap;">
+                        <button type="button" class="quick-chip" id="chip-15" onclick="setSlider(15000)">1.5萬</button>
+                        <button type="button" class="quick-chip" id="chip-25" onclick="setSlider(25000)">2.5萬</button>
+                        <button type="button" class="quick-chip" id="chip-35" onclick="setSlider(35000)">3.5萬</button>
+                        <button type="button" class="quick-chip" id="chip-50" onclick="setSlider(50000)">5.0萬</button>
+                        <button type="button" class="quick-chip active" id="chip-70" onclick="setSlider(70000)">7.0萬</button>
+                        <button type="button" class="quick-chip" id="chip-100" onclick="setSlider(100000)">10.0萬</button>
+                        <button type="button" class="quick-chip" id="chip-150" onclick="setSlider(150000)">15.0萬</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stat-banner" style="margin-bottom:0;">
+                <div class="stat-box">
+                    <div class="label">預定 FYC</div>
+                    <div class="val" id="bFyc">511,875 元</div>
+                </div>
+                <div class="stat-box">
+                    <div class="label">加碼獎金</div>
+                    <div class="val" id="bBonus" style="color:#10b981;">45,000 元</div>
+                </div>
+                <div class="stat-box">
+                    <div class="label">總佣獎合計</div>
+                    <div class="val" id="bTotal" style="color:#f59e0b;">556,875 元</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">🏆 新商品通關測驗</div>
+            <div class="quiz-item">
+                <div class="quiz-q">Q1. 《基富利》的預定利率與宣告利率分別為多少？</div>
+                <input type="radio" name="q1" id="q1a" class="quiz-radio ans-wrong">
+                <label for="q1a" class="quiz-opt-label" style="margin-bottom:8px;">A. 2.0% / 4.0%</label>
+                <input type="radio" name="q1" id="q1b" class="quiz-radio ans-right">
+                <label for="q1b" class="quiz-opt-label">B. 2.5% / 4.3%</label>
+                <div class="quiz-exp">✅ 正確答案：B！預定利率 2.50%，宣告利率 4.30%。</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    ※ 本互動教學系統僅供內部教育訓練與業務同仁學習研討使用。
+</footer>
+
+<script>
+    function calcDiscount() {
+        const term = parseInt(document.getElementById('discTerm').value);
+        const prem = parseFloat(document.getElementById('rawPrem').value) || 0;
+        const chkBank = document.getElementById('chkBank').checked ? 1 : 0;
+        const chkEpol = document.getElementById('chkEpol').checked ? 1 : 0;
+        const chkOld = document.getElementById('chkOld').checked ? 1 : 0;
+
+        let highDisc = 0;
+        if (term === 6) {
+            if (prem >= 100000) highDisc = 5;
+            else if (prem >= 30000) highDisc = 4;
+            else if (prem >= 12000) highDisc = 3;
+            else if (prem >= 3000) highDisc = 2;
+        } else if (term === 10) {
+            if (prem >= 50000) highDisc = 5;
+            else if (prem >= 15000) highDisc = 4;
+            else if (prem >= 7000) highDisc = 3;
+            else if (prem >= 1500) highDisc = 2;
+        } else if (term === 20) {
+            if (prem >= 12000) highDisc = 5;
+            else if (prem >= 5000) highDisc = 4;
+            else if (prem >= 2500) highDisc = 3;
+            else if (prem >= 1200) highDisc = 2;
+        }
+
+        const totalDisc = highDisc + chkBank + chkEpol + chkOld;
+        const netPrem = Math.round(prem * (1 - totalDisc / 100));
+        const saveYr = Math.round(prem - netPrem);
+        const saveTotal = saveYr * term;
+
+        document.getElementById('resTotalDisc').innerText = totalDisc + "%";
+        document.getElementById('resNetPrem').innerText = "$" + netPrem.toLocaleString();
+        document.getElementById('resSaveTotal').innerText = "$" + saveTotal.toLocaleString();
+    }
+
+    let currentPremVal = 70000;
+    const minPrem = 10000;
+    const maxPrem = 150000;
+
+    function updateTouchSliderUI(val) {
+        currentPremVal = val;
+        const sliderInput = document.getElementById('bonusSlider');
+        if (sliderInput) sliderInput.value = val;
+
+        const percent = Math.min(100, Math.max(0, ((val - minPrem) / (maxPrem - minPrem)) * 100));
+        const fill = document.getElementById('touchFill');
+        const thumb = document.getElementById('touchThumb');
+        if (fill) fill.style.width = percent + '%';
+        if (thumb) thumb.style.left = `calc(${percent}% - 18px)`;
+
+        document.querySelectorAll('.quick-chip').forEach(c => c.classList.remove('active'));
+        if (val === 15000 && document.getElementById('chip-15')) document.getElementById('chip-15').classList.add('active');
+        if (val === 25000 && document.getElementById('chip-25')) document.getElementById('chip-25').classList.add('active');
+        if (val === 35000 && document.getElementById('chip-35')) document.getElementById('chip-35').classList.add('active');
+        if (val === 50000 && document.getElementById('chip-50')) document.getElementById('chip-50').classList.add('active');
+        if (val === 70000 && document.getElementById('chip-70')) document.getElementById('chip-70').classList.add('active');
+        if (val === 100000 && document.getElementById('chip-100')) document.getElementById('chip-100').classList.add('active');
+        if (val === 150000 && document.getElementById('chip-150')) document.getElementById('chip-150').classList.add('active');
+    }
+
+    function setSlider(val) {
+        updateTouchSliderUI(val);
+        calcBonus();
+    }
+
+    function adjustSlider(delta) {
+        let val = currentPremVal + delta;
+        val = Math.min(maxPrem, Math.max(minPrem, val));
+        setSlider(val);
+    }
+
+    function initTouchSlider() {
+        const container = document.getElementById('touchSliderContainer');
+        if (!container) return;
+
+        let isDragging = false;
+
+        function handleMove(clientX) {
+            const rect = container.getBoundingClientRect();
+            let pos = (clientX - rect.left) / rect.width;
+            pos = Math.min(1, Math.max(0, pos));
+            let rawVal = minPrem + pos * (maxPrem - minPrem);
+            let stepVal = Math.round(rawVal / 5000) * 5000;
+            stepVal = Math.min(maxPrem, Math.max(minPrem, stepVal));
+            updateTouchSliderUI(stepVal);
+            calcBonus();
+        }
+
+        container.addEventListener('touchstart', function(e) {
+            isDragging = true;
+            handleMove(e.touches[0].clientX);
+            e.preventDefault();
+        }, { passive: false });
+
+        window.addEventListener('touchmove', function(e) {
+            if (isDragging) {
+                handleMove(e.touches[0].clientX);
+                e.preventDefault();
+            }
+        }, { passive: false });
+
+        window.addEventListener('touchend', function(e) {
+            isDragging = false;
+        });
+
+        container.addEventListener('mousedown', function(e) {
+            isDragging = true;
+            handleMove(e.clientX);
+            e.preventDefault();
+        });
+
+        window.addEventListener('mousemove', function(e) {
+            if (isDragging) {
+                handleMove(e.clientX);
+                e.preventDefault();
+            }
+        });
+
+        window.addEventListener('mouseup', function(e) {
+            isDragging = false;
+        });
+    }
+
+    function calcBonus() {
+        const termSelect = document.getElementById('bonusTerm');
+        const term = termSelect ? parseInt(termSelect.value) : 10;
+        const prem = currentPremVal;
+        document.getElementById('premSliderVal').innerText = prem.toLocaleString();
+
+        const rateMap = { 6: 0.135, 10: 0.225, 20: 0.370 };
+        const fycRate = rateMap[term] || 0.225;
+        const exRate = 32.5;
+        const mult = exRate * fycRate;
+
+        let fyc = Math.round(prem * mult);
+        let bonus = 0;
+
+        if (prem < 15000) {
+            bonus = 0;
+        } else if (prem < 25000) {
+            bonus = 6000;
+        } else if (prem < 35000) {
+            bonus = 10000;
+        } else if (prem < 50000) {
+            bonus = 15000;
+        } else if (prem < 70000) {
+            bonus = 25000;
+        } else {
+            const extraTenK = Math.floor((prem - 70000) / 10000);
+            bonus = 45000 + (extraTenK * 7000);
+        }
+
+        const total = fyc + bonus;
+        document.getElementById('bFyc').innerText = fyc.toLocaleString() + " 元";
+        document.getElementById('bBonus').innerText = bonus.toLocaleString() + " 元";
+        document.getElementById('bTotal').innerText = total.toLocaleString() + " 元";
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        initTouchSlider();
+        calcBonus();
+    });
+</script>
+</body>
+</html>
