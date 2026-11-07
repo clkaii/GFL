@@ -33,6 +33,7 @@
             padding-bottom: 60px;
         }
 
+        /* Top QuickLook Warning Banner (Hidden automatically if JS works, or acts as helpful guide) */
         .preview-notice {
             background: linear-gradient(90deg, #b45309, #d97706);
             color: #fff;
@@ -76,6 +77,7 @@
             font-size: 0.95rem;
         }
 
+        /* Pure CSS Radio Tabs Engine (Works 100% even in Mac Quick Look without JS!) */
         .tab-radio {
             display: none;
         }
@@ -115,6 +117,7 @@
             color: #fff;
         }
 
+        /* Active Tab Styling via CSS :checked */
         #nav-tab1:checked ~ .nav-tabs label[for="nav-tab1"],
         #nav-tab2:checked ~ .nav-tabs label[for="nav-tab2"],
         #nav-tab3:checked ~ .nav-tabs label[for="nav-tab3"],
@@ -150,6 +153,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* Sub-tabs for Module 3 Projects (Pure CSS Radio Engine) */
         .proj-radio, .sheep-radio {
             display: none;
         }
@@ -191,6 +195,7 @@
             display: block;
         }
 
+        /* Pure CSS Sheep Sub-tabs */
         .sheep-selector {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -235,6 +240,7 @@
             display: block;
         }
 
+        /* Cards & Grid */
         .grid-2 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -269,6 +275,7 @@
             padding-bottom: 10px;
         }
 
+        /* Highlight Stat Boxes */
         .stat-banner {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -302,6 +309,7 @@
             margin-top: 4px;
         }
 
+        /* 9-Grid Interactive Details Cards (Works with or without JS!) */
         .nine-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -352,6 +360,7 @@
             color: var(--kgi-gold-light);
         }
 
+        /* Interactive Simulator Controls */
         .sim-controls {
             display: flex;
             flex-wrap: wrap;
@@ -412,6 +421,16 @@
             cursor: pointer;
         }
 
+        input[type="range"]::-moz-range-thumb {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #fde047, #d4af37);
+            border: 2px solid #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+            cursor: pointer;
+        }
+
         .step-btn {
             background: #1e293b;
             border: 1px solid var(--kgi-gold);
@@ -451,6 +470,14 @@
             border-color: var(--kgi-gold);
             color: var(--kgi-gold-light);
         }
+            width: 100%;
+            padding: 10px 12px;
+            background: #1e293b;
+            border: 1px solid #475569;
+            color: #fff;
+            border-radius: 8px;
+            font-size: 0.95rem;
+        }
 
         .checkbox-group {
             display: flex;
@@ -471,6 +498,7 @@
             border: 1px solid #475569;
         }
 
+        /* Tables */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -494,6 +522,7 @@
             background: rgba(255, 255, 255, 0.03);
         }
 
+        /* Script Box */
         .script-box {
             background: #0f172a;
             border-left: 4px solid var(--kgi-light-blue);
@@ -514,6 +543,7 @@
             font-size: 0.95rem;
         }
 
+        /* Pure CSS + JS Hybrid Quiz Styling */
         .quiz-item {
             background: #0f172a;
             border: 1px solid #334155;
@@ -533,6 +563,11 @@
             display: none;
         }
 
+        .quiz-options {
+            display: grid;
+            gap: 8px;
+        }
+
         .quiz-opt-label {
             background: #1e293b;
             border: 1px solid #475569;
@@ -550,6 +585,7 @@
             border-color: var(--kgi-gold);
         }
 
+        /* Pure CSS Quiz Feedback when clicked! */
         .quiz-radio.ans-right:checked + .quiz-opt-label {
             background: rgba(16, 185, 129, 0.25);
             border-color: var(--success);
@@ -574,6 +610,7 @@
             color: #e2e8f0;
         }
 
+        /* Show explanation when ANY option in that question is checked */
         .quiz-item input[type="radio"]:checked ~ .quiz-exp {
             display: block;
         }
@@ -606,12 +643,17 @@
 </head>
 <body>
 
+<div class="preview-notice">
+    💡 實戰互動提示：本新版已支援<strong>「預覽視窗直接切換分頁、展開卡片與作答測驗」</strong>！若欲使用動態保費輸入與滑桿試算，請點選右上角<strong>「以 Safari 打開」</strong>或用 Chrome 開啟。
+</div>
+
 <header>
     <div class="badge-top">凱基人壽 北二區域中心｜業務實戰互動訓練系統</div>
     <h1>【基富利】美元利率變動型終身壽險</h1>
     <p>基業穩固・富足規劃・利享未來｜兼具「高現價累積」與業界首創「享樂權」之終極王牌</p>
 </header>
 
+<!-- Pure CSS Radio Inputs for Top-Level Navigation (Works without JS!) -->
 <input type="radio" name="main-nav" id="nav-tab1" class="tab-radio" checked>
 <input type="radio" name="main-nav" id="nav-tab2" class="tab-radio">
 <input type="radio" name="main-nav" id="nav-tab3" class="tab-radio">
@@ -628,7 +670,7 @@
 
 <div class="container">
 
-    <!-- ==================== 模組一 ==================== -->
+    <!-- ==================== 模組一：商品九宮格與規格 ==================== -->
     <div id="module1" class="module">
         <div class="stat-banner">
             <div class="stat-box">
@@ -697,7 +739,7 @@
                 </details>
                 <details class="feature-item">
                     <summary>6. 原則免體檢 <span class="tag tag-green">開拓客群最有利 ▼</span></summary>
-                    <div class="f-desc">列屬「第一類商品」，原則免體檢受理；惟如有告知既往病史/現症、次標延拒、理賠史等，核保仍得要求就診資料或體檢。</div>
+                    <div class="f-desc">列屬「第一類商品」，列屬「第一類商品」，原則免體檢受理；惟如有告知既往病史/現症、次標延拒、理賠史等，核保仍得要求就診資料或體檢。</div>
                     <div class="f-more">💬 <strong>實戰切入：</strong>高資產長輩最討厭去醫院體檢！健康告知正常情況下原則免體檢受理，方便高額規劃。</div>
                 </details>
                 <details class="feature-item">
@@ -719,7 +761,7 @@
         </div>
     </div>
 
-    <!-- ==================== 模組二 ==================== -->
+    <!-- ==================== 模組二：獨創「享樂權」雙軌解析 ==================== -->
     <div id="module2" class="module">
         <div class="card" style="margin-bottom: 24px;">
             <div class="card-title">🔄 凱基首創「享樂權」：一張保單，兩種進化型態！</div>
@@ -732,8 +774,8 @@
                     <ul style="padding-left: 20px; font-size: 0.92rem; color: #e2e8f0;">
                         <li><strong>自由選擇享樂年齡：</strong>65歲~80歲之間任選一年啟動，年年領生存金至110歲。</li>
                         <li><strong>宣告利率更優：</strong>4.3% 遠勝舊商品（金美/享富年年 3.7%）。</li>
-                        <li><strong>給付時點超彈性：</strong>舊款悠退年年/金美年年只能固定選 55、60、65歲，基富利 65~80歲隨你選！</li>
-                        <li><strong>先累積再領，還本率超甜：</strong>有足夠時間複利滾存，6P每年可領總保費約 <strong>9.7% ~ 14.4%</strong>（金美僅2.3~3.3%、悠退年年7~10%）。</li>
+                        <li><strong>給付時點超彈性：</strong>舊款悠退/享退年年只能固定選 55、60、65歲，基富利 65~80歲隨你選！</li>
+                        <li><strong>先累積再領，還本率超甜：</strong>有足夠時間複利滾存，6P每年可領總保費約 <strong>9.7% ~ 14.4%</strong>（金美僅2.3~3.3%、悠退享退7~10%）。</li>
                     </ul>
                 </div>
 
@@ -780,8 +822,9 @@
         </div>
     </div>
 
-    <!-- ==================== 模組三 ==================== -->
+    <!-- ==================== 模組三：折扣與專案試算器 ==================== -->
     <div id="module3" class="module">
+        <!-- 三大黃金專案切換器 (Pure CSS Radio Engine - Works in Quick Look!) -->
         <div class="card" style="margin-bottom: 24px;">
             <div class="card-title">🐑 實戰工具 A：三大黃金銷售專案展示器（點擊下方按鈕直接切換！）</div>
 
@@ -795,9 +838,9 @@
                 <label for="proj-r3" class="proj-label">👶 傳世金孫隔代贈與專案 (0歲男・保額40萬美)</label>
             </div>
 
-            <!-- 專案 1 -->
+            <!-- 專案 1：羊羊計畫 (Pure CSS Radio Engine) -->
             <div id="proj-panel-1" class="proj-panel">
-                <p style="color:#cbd5e1; font-size:0.92rem; margin-bottom:12px;">📌 <strong>設定範例：</strong>40歲男性，預定2.5% / 宣告4.3%，回饋金採增額繳清，<strong>65歲起執行享樂權領生存金</strong>：</p>
+                <p style="color:#cbd5e1; font-size:0.92rem; margin-bottom:12px;">📌 <strong>設定範例：</strong>40歲男性，預定2.5% / 宣告4.3%，回饋金採增額繳清，<strong>65歲起執行享樂權領生存金</strong>（點擊四隻羊立即比較 6P 與 10P 數據）：</p>
 
                 <input type="radio" name="sheep-switch" id="sheep-r1" class="sheep-radio" checked>
                 <input type="radio" name="sheep-switch" id="sheep-r2" class="sheep-radio">
@@ -811,6 +854,7 @@
                     <label for="sheep-r4" class="sheep-label">🎀 美羊羊 (高資產)<br><span style="font-size:0.8rem; font-weight:400;">年繳 $100,000 美 (8%折)</span></label>
                 </div>
 
+                <!-- 懶羊羊 -->
                 <div id="sheep-panel-1" class="sheep-panel">
                     <h3 style="color:var(--kgi-gold-light); margin-bottom:12px;">💤 懶羊羊（小資入門方案｜原始年繳 1,000 美元 ➔ 3%折扣後實繳 970 美元）</h3>
                     <div class="grid-2" style="margin-bottom:12px;">
@@ -820,6 +864,7 @@
                                 <li><strong>總繳保費：</strong>5,820 美元</li>
                                 <li><strong>65歲起每年領生存金：</strong><span style="color:#10b981; font-weight:700;">661 美元 / 年</span></li>
                                 <li><strong>第 6 年現金價值：</strong>6,010 美元（滿期即保本！）</li>
+                                <li><strong>第 10 年現金價值：</strong>7,161 美元</li>
                             </ul>
                         </div>
                         <div style="background:#1e293b; padding:16px; border-radius:10px; border-left:4px solid #38bdf8;">
@@ -828,11 +873,16 @@
                                 <li><strong>總繳保費：</strong>9,700 美元</li>
                                 <li><strong>65歲起每年領生存金：</strong><span style="color:#10b981; font-weight:700;">1,009 美元 / 年</span></li>
                                 <li><strong>第 10 年現金價值：</strong>10,936 美元</li>
+                                <li><strong>第 20 年現金價值：</strong>16,557 美元</li>
                             </ul>
                         </div>
                     </div>
+                    <div style="background:rgba(212,175,55,0.12); padding:10px 14px; border-radius:8px; font-size:0.9rem;">
+                        💡 <strong>銷售亮點：</strong>每月不到台幣 2,600 元，門檻極低，幫年輕小資族輕鬆鎖定 4.3% 美元退休帳戶！
+                    </div>
                 </div>
 
+                <!-- 慢羊羊 -->
                 <div id="sheep-panel-2" class="sheep-panel">
                     <h3 style="color:var(--kgi-gold-light); margin-bottom:12px;">👓 慢羊羊（穩健累積方案｜原始年繳 3,000 美元 ➔ 5%折扣後實繳 2,850 美元）</h3>
                     <div class="grid-2" style="margin-bottom:12px;">
@@ -841,6 +891,8 @@
                             <ul style="padding-left:18px; font-size:0.9rem;">
                                 <li><strong>總繳保費：</strong>17,100 美元</li>
                                 <li><strong>65歲起每年領生存金：</strong><span style="color:#10b981; font-weight:700;">1,981 美元 / 年</span></li>
+                                <li><strong>第 6 年現金價值：</strong>18,027 美元</li>
+                                <li><strong>第 10 年現金價值：</strong>21,474 美元</li>
                             </ul>
                         </div>
                         <div style="background:#1e293b; padding:16px; border-radius:10px; border-left:4px solid #38bdf8;">
@@ -848,11 +900,17 @@
                             <ul style="padding-left:18px; font-size:0.9rem;">
                                 <li><strong>總繳保費：</strong>28,500 美元</li>
                                 <li><strong>65歲起每年領生存金：</strong><span style="color:#10b981; font-weight:700;">3,027 美元 / 年</span></li>
+                                <li><strong>第 10 年現金價值：</strong>32,799 美元</li>
+                                <li><strong>第 20 年現金價值：</strong>49,657 美元</li>
                             </ul>
                         </div>
                     </div>
+                    <div style="background:rgba(212,175,55,0.12); padding:10px 14px; border-radius:8px; font-size:0.9rem;">
+                        💡 <strong>銷售亮點：</strong>跨入高保費 2% 折減門檻（加轉帳1%+電子1%+有效客1%=共5%折扣），10P方案65歲起每年領回金額直接超越當年實繳年繳保費！
+                    </div>
                 </div>
 
+                <!-- 喜羊羊 -->
                 <div id="sheep-panel-3" class="sheep-panel">
                     <h3 style="color:var(--kgi-gold-light); margin-bottom:12px;">🔔 喜羊羊（主力熱銷推薦！｜原始年繳 12,000 美元 ➔ 6%折扣後實繳 11,280 美元）</h3>
                     <div class="grid-2" style="margin-bottom:12px;">
@@ -861,6 +919,8 @@
                             <ul style="padding-left:18px; font-size:0.9rem;">
                                 <li><strong>總繳保費：</strong>67,680 美元</li>
                                 <li><strong>65歲起每年領生存金：</strong><span style="color:#10b981; font-weight:700;">7,925 美元 / 年</span></li>
+                                <li><strong>第 6 年現金價值：</strong>72,097 美元</li>
+                                <li><strong>第 10 年現金價值：</strong>85,878 美元</li>
                             </ul>
                         </div>
                         <div style="background:#1e293b; padding:16px; border-radius:10px; border-left:4px solid #38bdf8;">
@@ -868,80 +928,156 @@
                             <ul style="padding-left:18px; font-size:0.9rem;">
                                 <li><strong>總繳保費：</strong>112,800 美元</li>
                                 <li><strong>65歲起每年領生存金：</strong><span style="color:#10b981; font-weight:700;">12,106 美元 / 年</span></li>
+                                <li><strong>第 10 年現金價值：</strong>131,184 美元</li>
+                                <li><strong>第 20 年現金價值：</strong>198,609 美元</li>
                             </ul>
                         </div>
                     </div>
+                    <div style="background:rgba(16,185,129,0.15); border:1px solid #10b981; padding:12px 14px; border-radius:8px; font-size:0.92rem;">
+                        🔥 <strong>必背成交金句（以6P喜羊羊為例）：</strong><br>
+                        ★ <strong>生存金領 8 年（65歲~72歲）即回本</strong>，總領 <strong>67,784 美元</strong>！<br>
+                        ★ <strong>73歲~90歲繼續領</strong>，總領高達 <strong>197,696 美元</strong>，是總繳保費的 <strong>2.92 倍</strong>！
+                    </div>
                 </div>
 
+                <!-- 美羊羊 -->
                 <div id="sheep-panel-4" class="sheep-panel">
                     <h3 style="color:var(--kgi-gold-light); margin-bottom:12px;">🎀 美羊羊（尊榮高資產方案｜原始年繳 100,000 美元 ➔ 8%折扣後實繳 92,000 美元）</h3>
                     <div class="grid-2" style="margin-bottom:12px;">
                         <div style="background:#1e293b; padding:16px; border-radius:10px; border-left:4px solid var(--kgi-gold);">
                             <h4 style="color:var(--kgi-gold-light); margin-bottom:8px;">🔹 6年期 (6P)｜保額 504,288 美元</h4>
                             <ul style="padding-left:18px; font-size:0.9rem;">
-                                <li><strong>總繳保費：</strong>552,000 美元</li>
+                                <li><strong>總繳保費：</strong>552,000 美元（省下4.8萬美！）</li>
                                 <li><strong>65歲起每年領生存金：</strong><span style="color:#10b981; font-weight:700;">66,039 美元 / 年</span></li>
+                                <li><strong>第 6 年現金價值：</strong>600,788 美元</li>
+                                <li><strong>第 10 年現金價值：</strong>715,637 美元</li>
                             </ul>
                         </div>
                         <div style="background:#1e293b; padding:16px; border-radius:10px; border-left:4px solid #38bdf8;">
                             <h4 style="color:#38bdf8; margin-bottom:8px;">🔹 10年期 (10P)｜保額 797,452 美元</h4>
                             <ul style="padding-left:18px; font-size:0.9rem;">
-                                <li><strong>總繳保費：</strong>920,000 美元</li>
+                                <li><strong>總繳保費：</strong>920,000 美元（省下8萬美！）</li>
                                 <li><strong>65歲起每年領生存金：</strong><span style="color:#10b981; font-weight:700;">100,874 美元 / 年</span></li>
+                                <li><strong>第 10 年現金價值：</strong>1,093,130 美元</li>
+                                <li><strong>第 20 年現金價值：</strong>1,654,976 美元</li>
                             </ul>
                         </div>
+                    </div>
+                    <div style="background:rgba(212,175,55,0.12); padding:10px 14px; border-radius:8px; font-size:0.9rem;">
+                        💡 <strong>銷售亮點：</strong>拿滿最高 8% 折扣！每年光保費就現省 8,000 美元，65歲起每年領回 6.6萬~10萬美元（約台幣 211萬~322萬/年）！
                     </div>
                 </div>
             </div>
 
-            <!-- 專案 2 -->
+            <!-- 專案 2：45歲男基富利專案 -->
             <div id="proj-panel-2" class="proj-panel">
-                <p style="color:#cbd5e1; font-size:0.92rem; margin-bottom:14px;">📌 <strong>設定範例：</strong>45歲男性投保6年期，折扣後實繳年繳 <strong>100,000 美元</strong>，8%最高折扣。</p>
+                <p style="color:#cbd5e1; font-size:0.92rem; margin-bottom:14px;">📌 <strong>設定範例：</strong>45歲男性投保6年期，折扣後實繳年繳 <strong>100,000 美元</strong>（總繳60萬美元，折合台幣約 1,920萬，匯率1:32），8%最高折扣。</p>
                 <div class="grid-2">
                     <div style="background:#0f172a; padding:18px; border-radius:10px; border-left:4px solid var(--kgi-gold);">
                         <h4 style="color:var(--kgi-gold-light); margin-bottom:10px;">📈 選擇【不執行享樂權】— 複利增值傳承</h4>
                         <ul style="padding-left:18px; font-size:0.9rem; color:#e2e8f0;">
-                            <li><strong>第 5 年度末 (49歲)：</strong>現價 $519,232 美 (104%)，<strong>第5年即保本！</strong></li>
-                            <li><strong>第 20 年度末 (64歲)：</strong>現價 $1,177,267 美，65歲突破 <strong>4,000萬台幣</strong>。</li>
+                            <li><strong>第 5 年度末 (49歲)：</strong>現金價值 $519,232 美 (104%)，<strong>第5年即保本！</strong></li>
+                            <li><strong>第 10 年度末 (54歲)：</strong>現價 $777,861 美 (約 2,489萬台幣)，55歲達 <strong>2,600萬台幣</strong>（每年增值約100萬台幣）。</li>
+                            <li><strong>第 20 年度末 (64歲)：</strong>現價 $1,177,267 美 (約 <strong>3,767萬台幣</strong>)，65歲突破 <strong>4,000萬台幣</strong>（每年增值約160萬台幣）。</li>
+                            <li><strong>76歲：</strong>達 <strong>6,000萬台幣</strong>（每年增值250萬）。</li>
+                            <li><strong>88歲 (第44~45年)：</strong>突破 <strong>1億台幣</strong>（每年增值400萬），預留稅源極佳！</li>
                         </ul>
                     </div>
                     <div style="background:#0f172a; padding:18px; border-radius:10px; border-left:4px solid #10b981;">
                         <h4 style="color:#6ee7b7; margin-bottom:10px;">💵 選擇【64/65歲執行享樂權】— 退休活水金流</h4>
                         <ul style="padding-left:18px; font-size:0.9rem; color:#e2e8f0;">
-                            <li><strong>第 20 年度末 (64歲)：</strong>領生存金 <strong>$58,306 美元</strong> (9.7%)。</li>
-                            <li><strong>第 41 年度末 (85歲)：</strong>領生存金 <strong>$86,159 美元</strong> (高達 <strong>14.4%</strong>)。</li>
+                            <li><strong>每年領回總保費約 10% ~ 14.4%！</strong></li>
+                            <li><strong>第 20 年度末 (64歲)：</strong>當年領生存金 <strong>$58,306 美元</strong> (9.7%)，同時仍保有 $1,050,5xx 美現價。</li>
+                            <li><strong>第 26 年度末 (70歲)：</strong>當年領生存金 <strong>$64,077 美元</strong> (10.7%)，累積已領 $42.5萬美元。</li>
+                            <li><strong>第 36 年度末 (80歲)：</strong>當年領生存金 <strong>$77,732 美元</strong> (13.0%)，累積已領 $113.8萬美元（已超過總繳保費近2倍！）。</li>
+                            <li><strong>第 41 年度末 (85歲)：</strong>當年領生存金 <strong>$86,159 美元</strong> (高達 <strong>14.4%</strong>)，累積已領 $155.1萬美元！</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-            <!-- 專案 3 -->
+            <!-- 專案 3：0歲男傳世金孫專案 -->
             <div id="proj-panel-3" class="proj-panel">
-                <p style="color:#cbd5e1; font-size:0.92rem; margin-bottom:14px;">📌 <strong>王先生喜獲金孫案例：</strong>善用每年 <strong>244萬台幣贈與免稅額</strong>，幫 0歲金孫規劃保額 40萬美元（6年期）。</p>
+                <p style="color:#cbd5e1; font-size:0.92rem; margin-bottom:14px;">📌 <strong>王先生喜獲金孫案例：</strong>善用每人每年 <strong>244萬台幣贈與免稅額</strong>，幫 0歲金孫規劃保額 40萬美元（6年期），原始年繳 $83,800 美，7%折扣後實繳年繳 <strong>$77,934 美元</strong>（約249萬台幣，6年總投入 $448,110 美元 / 約 <strong>1,434萬台幣</strong>）。</p>
                 <div class="grid-2">
                     <div style="background:#0f172a; padding:18px; border-radius:10px; border-left:4px solid #38bdf8;">
                         <h4 style="color:#38bdf8; margin-bottom:10px;">🌳 隔代傳承複利神蹟（不執行享樂權）</h4>
                         <ul style="padding-left:18px; font-size:0.9rem; color:#e2e8f0;">
                             <li><strong>第 5 年度末 (4歲)：</strong>現價 $381,120 美 (101%)，<strong>第5年即保本！</strong></li>
-                            <li><strong>50歲 (第51年)：</strong>突破 <strong>1億台幣</strong>。</li>
-                            <li><strong>89歲 (第90年)：</strong>突破 <strong>5億台幣</strong>。</li>
+                            <li><strong>17歲 (第18年)：</strong>現價 $810,990 美 (約 <strong>2,500萬台幣</strong>)，之後每年增值約 100萬台幣。</li>
+                            <li><strong>33歲 (第34年)：</strong>現價 $1,590,304 美 (約 <strong>5,000萬台幣</strong>)，每年增值約 200萬台幣。</li>
+                            <li><strong>50歲 (第51年)：</strong>現價 $3,228,201 美 (突破 <strong>1億台幣</strong>)，每年增值約 400萬台幣。</li>
+                            <li><strong>66歲 (第67年)：</strong>現價 $6,270,116 美 (突破 <strong>2億台幣</strong>)，每年增值約 800萬台幣。</li>
+                            <li><strong>89歲 (第90年)：</strong>現價 $16,246,308 美 (突破 <strong>5億台幣</strong>)，真正實現富過三代！</li>
                         </ul>
                     </div>
                     <div style="background:#0f172a; padding:18px; border-radius:10px; border-left:4px solid var(--kgi-gold);">
-                        <h4 style="color:var(--kgi-gold-light); margin-bottom:10px;">🎁 若金孫 65歲啟動享樂權</h4>
+                        <h4 style="color:var(--kgi-gold-light); margin-bottom:10px;">🎁 若金孫 65歲啟動享樂權（每年領生存金）</h4>
                         <ul style="padding-left:18px; font-size:0.9rem; color:#e2e8f0;">
-                            <li><strong>每年可領生存金高達 $28.5萬 ~ $47.7萬美元（每年領 900萬 ~ 1,500萬元）！</strong></li>
+                            <li>阿公在金孫 0歲種下的 1,434萬台幣種子，到了金孫 64/65歲退休時：</li>
+                            <li><strong>每年可領生存金高達 $28.5萬 ~ $47.7萬美元（折合台幣每年領 900萬 ~ 1,500萬元）！</strong></li>
+                            <li><strong>64歲當年：</strong>領 $285,896 美元（佔當初總繳保費 <strong>64%</strong>），同時保單現價還有 548萬美元！</li>
+                            <li><strong>89歲當年：</strong>領 $477,011 美元（佔當初總繳保費 <strong>106%</strong>），累積已領高達 957萬美元！</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- 高保費折減速查表 + 動態計算機 -->
         <div class="card">
-            <div class="card-title">🧮 實戰工具 B：保費折減試算器（最高 8% 折扣）</div>
+            <div class="card-title">🧮 實戰工具 B：基富利「保費折減級距速查表 & 試算器」（最高 8% 折扣）</div>
+            <p style="font-size:0.9rem; color:#cbd5e1; margin-bottom:10px;">
+                📌 <strong>固定附加折扣（合計3%）：</strong>自動轉帳/匯款 <strong>1%</strong> ＋ 電子保單 <strong>1%</strong> ＋ 有效契約保戶 <strong>1%（重磅回歸！）</strong><br>
+                📌 <strong>高保費折減級距表（2% ~ 5%）：</strong>
+            </p>
+            <div style="overflow-x:auto; margin-bottom:20px;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>高保費折減率</th>
+                            <th>加計3%後總折減</th>
+                            <th>6年期 (6P) 美元保費門檻</th>
+                            <th>10年期 (10P) 美元保費門檻</th>
+                            <th>20年期 (20P) 美元保費門檻</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>2%</strong></td>
+                            <td style="color:#6ee7b7; font-weight:700;">5%</td>
+                            <td>0.3萬 (3,000) ≦ 保費 &lt; 1.2萬</td>
+                            <td>0.15萬 (1,500) ≦ 保費 &lt; 0.7萬</td>
+                            <td>0.12萬 (1,200) ≦ 保費 &lt; 0.25萬</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3%</strong></td>
+                            <td style="color:#6ee7b7; font-weight:700;">6%</td>
+                            <td>1.2萬 ≦ 保費 &lt; 3.0萬</td>
+                            <td>0.7萬 ≦ 保費 &lt; 1.5萬</td>
+                            <td>0.25萬 ≦ 保費 &lt; 0.5萬</td>
+                        </tr>
+                        <tr>
+                            <td><strong>4%</strong></td>
+                            <td style="color:#6ee7b7; font-weight:700;">7%</td>
+                            <td>3.0萬 ≦ 保費 &lt; 10.0萬</td>
+                            <td>1.5萬 ≦ 保費 &lt; 5.0萬</td>
+                            <td>0.5萬 ≦ 保費 &lt; 1.2萬</td>
+                        </tr>
+                        <tr style="background:rgba(212,175,55,0.12);">
+                            <td><strong style="color:var(--kgi-gold);">最高 5%</strong></td>
+                            <td style="color:var(--kgi-gold); font-weight:800; font-size:1.05rem;">最高 8%</td>
+                            <td><strong>10.0萬 ≦ 保費</strong></td>
+                            <td><strong>5.0萬 ≦ 保費</strong></td>
+                            <td><strong>1.2萬 ≦ 保費</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
             <div class="sim-controls">
                 <div class="control-group">
-                    <label>選擇繳費年期</label>
+                    <label>選擇繳費年期（瀏覽器開啟時可即時試算）</label>
                     <select id="discTerm" onchange="calcDiscount()">
                         <option value="6">6年期 (6P)</option>
                         <option value="10">10年期 (10P)</option>
@@ -955,51 +1091,77 @@
                 <div class="control-group" style="flex: 2;">
                     <label>勾選附加折扣條件（各 1%）</label>
                     <div class="checkbox-group">
-                        <label class="checkbox-label"><input type="checkbox" id="chkBank" checked onchange="calcDiscount()"> 自動轉帳 (1%)</label>
+                        <label class="checkbox-label"><input type="checkbox" id="chkBank" checked onchange="calcDiscount()"> 自動轉帳/匯款 (1%)</label>
                         <label class="checkbox-label"><input type="checkbox" id="chkEpol" checked onchange="calcDiscount()"> 電子保單 (1%)</label>
-                        <label class="checkbox-label"><input type="checkbox" id="chkOld" checked onchange="calcDiscount()"> 有效保戶 (1%)</label>
+                        <label class="checkbox-label"><input type="checkbox" id="chkOld" checked onchange="calcDiscount()"> 有效契約保戶 (1%)</label>
                     </div>
                 </div>
             </div>
 
             <div class="stat-banner" style="margin-bottom:0;">
                 <div class="stat-box">
+                    <div class="label">高保費折減級距</div>
+                    <div class="val" id="resHighDisc">5%</div>
+                    <div class="sub" id="resHighRule">6P滿10萬美元享5%</div>
+                </div>
+                <div class="stat-box">
                     <div class="label">合計總折減率</div>
                     <div class="val" id="resTotalDisc" style="color:#10b981;">8%</div>
+                    <div class="sub">最高上限 8%</div>
                 </div>
                 <div class="stat-box">
                     <div class="label">折扣後實繳年繳保費</div>
                     <div class="val" id="resNetPrem">$92,000</div>
+                    <div class="sub" id="resSaveYr">每年立省 $8,000 美元</div>
                 </div>
                 <div class="stat-box">
                     <div class="label">總繳期累計省下保費</div>
                     <div class="val" id="resSaveTotal">$48,000</div>
+                    <div class="sub">直接放大客戶實質報酬率！</div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- ==================== 模組四 ==================== -->
+    <!-- ==================== 模組四：實戰話術與商品PK ==================== -->
     <div id="module4" class="module">
         <div class="card" style="margin-bottom: 24px;">
-            <div class="card-title">💬 黃金銷售金句與異議處理</div>
+            <div class="card-title">💬 黃金銷售金句與異議處理（業務必背話術）</div>
+
             <div class="script-box">
-                <div class="script-q">🗣️ 經典比喻：「水桶 vs 水井」養老哲學</div>
-                <div class="script-a">「用銀行裡的錢來養老，就像喝一桶水；用保險裡的錢來養老，就像在自家後院挖一口井，源源不絕且與生命等長！《基富利》的『享樂權』就是幫您挖好這口井。」</div>
+                <div class="script-q">🗣️ 經典比喻：「水桶 vs 水井」養老哲學（切入退休金流）</div>
+                <div class="script-a">
+                    「客戶大哥，<strong>用銀行裡的錢來養老，就像喝一桶水，看著沙漏流逝，早晚有用完的時候；但用保險裡的錢來養老，就像在自家後院挖一口井，源源不絕且與生命等長！</strong>《基富利》的『享樂權』就是幫您挖好這口井，65到80歲隨時想打開水龍頭領生存金，由您自己決定！」
+                </div>
             </div>
+
             <div class="script-box">
                 <div class="script-q">🗣️ 應對異議：「我現在買投資型（或ETF/股票）賺很快，幹嘛買利變壽險？」</div>
-                <div class="script-a">「投資是衝刺（贏了生活升級，輸了日子照過）；理財是保底（鎖定未來每天基本生活費）。你永遠不知道市場大跌哪天來，把一部分獲利挪儲到《基富利》，享受 4.3% 宣告利率與最高 8% 折扣，才是真正的贏家配置！」</div>
+                <div class="script-a">
+                    「完全同意！現在市場熱度夠，投資確實能幫我們衝刺財富。但<strong>『投資』和『理財』功能不同，價值絕對不能混為一談！</strong><br>
+                    • <strong>投資（衝刺）：</strong>是用閒錢去博未來每天 5,000 元吃大餐、出國玩的機會，贏了生活升級，輸了日子照過。<br>
+                    • <strong>理財（保底）：</strong>是鎖定未來每天 1,000 元的基本生活費，打死不動！<strong>你永遠不知道市場大跌哪天來，千萬別拿退休吃飯錢去跟股市賭。</strong>把一部分獲利挪儲到《基富利》，享受 4.3% 宣告利率與最高 8% 折扣，才是真正的贏家配置！」
+                </div>
             </div>
+
             <div class="script-box">
-                <div class="script-q">🗣️ 應對高資產長輩：「隔代贈與 6 大好處」</div>
-                <div class="script-a">「1. 減少資產移轉次數（少繳一次遺贈稅）；2. 善用每年 244 萬免稅額；3. 降低未來遺產總額；4. 讓資產更早開始複利；5. 指定想照顧的孫子女減少爭議；6. 搭配保險掌控主導權且享身故分期給付！」</div>
+                <div class="script-q">🗣️ 應對高資產長輩：「隔代贈與 6 大好處」（切入傳世金孫專案）</div>
+                <div class="script-a">
+                    「王董，現在把愛與財富提早傳給金孫有 6 大絕對優勢：<br>
+                    1️⃣ <strong>減少資產移轉次數：</strong>直接由祖父母贈與孫子女，跳過一代，少繳一次遺產/贈與稅。<br>
+                    2️⃣ <strong>運用每年贈與免稅額：</strong>台灣贈與稅以贈與人計算，每位每年有 <strong>244萬元免稅額</strong>，阿公阿嬤可分年輕鬆移轉。<br>
+                    3️⃣ <strong>降低未來遺產總額：</strong>生前逐年移轉，減輕未來遺產稅負壓力。<br>
+                    4️⃣ <strong>讓資產更早開始複利：</strong>從 0 歲結合時間與 4.3% 宣告利率，1,434萬能滾出上億傳承規模。<br>
+                    5️⃣ <strong>指定真正想照顧的人：</strong>明確指定給特定孫子女，減少家族分配爭議。<br>
+                    6️⃣ <strong>搭配保險掌控主導權：</strong>要保人填您自己，主控權 100% 握在您手裡，還能設定身故分期給付！」
+                </div>
             </div>
         </div>
 
         <div class="card">
             <div class="card-title">⚔️ 6P主力商品 40歲男規格比較（依簡報第25頁完整呈現）</div>
-            <div style="overflow-x: auto;">
+            <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:10px;">※ 為什麼有些客戶該買「基富利」而非「鑫長鴻」？請看下表關鍵差異：</p>
+                        <div style="overflow-x: auto;">
                 <table style="font-size: 0.85rem; text-align: center; border-collapse: collapse; width: 100%;">
                     <thead>
                         <tr style="background: #002b5c; color: #fff;">
@@ -1008,116 +1170,163 @@
                             <th style="padding: 10px; border: 1px solid #334155; width: 18%;">鑫享世承 (台幣)</th>
                             <th style="padding: 10px; border: 1px solid #334155; width: 18%;">鑫長鴻</th>
                             <th style="padding: 10px; border: 1px solid #334155; width: 18%;">美利盈家</th>
-                            <th style="padding: 10px; border: 1px solid var(--kgi-gold); background: #c2410c; color: #fff; width: 22%;">基富利 (NEW)</th>
+                            <th style="padding: 10px; border: 1px solid var(--kgi-gold); background: #c2410c; color: #fff; width: 22%;">
+                                <span class="tag" style="background:#fff; color:#c2410c; font-weight:800; font-size:0.75rem; margin-right:4px;">NEW</span>
+                                基富利
+                                <span class="tag" style="background:#fff; color:#c2410c; font-weight:800; font-size:0.75rem; margin-left:4px;">NEW</span>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td style="font-weight: bold; background: #0f172a; border: 1px solid #334155;">類型<br>預定/宣告</td>
-                            <td style="border: 1px solid #334155; text-align: left; padding: 8px;">基本保額固定型<br><strong>預定 2.75%</strong><br>分紅比例 85% (5.6%)</td>
-                            <td style="border: 1px solid #334155; text-align: left; padding: 8px;">基本保額固定型<br><strong>預定 2.0%</strong><br>宣告 2.4%</td>
-                            <td style="border: 1px solid #334155; text-align: left; padding: 8px;">基本保額固定型<br><strong>預定 2.8%</strong><br>宣告 4.3%</td>
-                            <td style="border: 1px solid #334155; text-align: left; padding: 8px;">基本保額遞減型<br><strong>預定 2.5%</strong><br>宣告 4.3%</td>
-                            <td style="border: 1px solid var(--kgi-gold); background: rgba(212,175,55,0.08); text-align: left; padding: 8px; font-weight: 600;">凱基獨創享樂權<br><span style="color:#6ee7b7;">預定 2.5%</span><br><span style="color:#fde047;">宣告 4.3%</span></td>
+                            <td style="border: 1px solid #334155; text-align: left; padding: 8px;">
+                                基本保額固定型 (不遞減)<br>
+                                <strong>預定 2.75%</strong><br>
+                                分紅比例 85%<br>預估中分紅 5.6%
+                            </td>
+                            <td style="border: 1px solid #334155; text-align: left; padding: 8px;">
+                                基本保額固定型 (不遞減)<br>
+                                <strong>預定 2.0%</strong><br>
+                                宣告 2.4% (2026.11月)
+                            </td>
+                            <td style="border: 1px solid #334155; text-align: left; padding: 8px;">
+                                基本保額固定型 (不遞減)<br>
+                                <strong>預定 2.8%</strong><br>
+                                宣告 4.3% (2026.11月)
+                            </td>
+                            <td style="border: 1px solid #334155; text-align: left; padding: 8px;">
+                                基本保額遞減型<br>
+                                <strong>預定 2.5%</strong><br>
+                                宣告 4.3% (2026.11月)
+                            </td>
+                            <td style="border: 1px solid var(--kgi-gold); background: rgba(212,175,55,0.08); text-align: left; padding: 8px; font-weight: 600;">
+                                凱基獨創享樂權<br>
+                                <span style="color: #6ee7b7;">預定 2.5%</span><br>
+                                <span style="color: #fde047;">宣告 4.3% (2026.11月)</span>
+                            </td>
                         </tr>
                         <tr>
                             <td style="font-weight: bold; background: #0f172a; border: 1px solid #334155;">年期</td>
-                            <td>6P</td>
-                            <td>6P、10P、20P</td>
-                            <td>6P、10P、20P</td>
-                            <td>6P</td>
-                            <td style="color:#fde047; font-weight:bold;">6P、10P、20P</td>
+                            <td style="border: 1px solid #334155;">6P</td>
+                            <td style="border: 1px solid #334155;">6P、10P、20P</td>
+                            <td style="border: 1px solid #334155;">6P、10P、20P</td>
+                            <td style="border: 1px solid #334155;">6P</td>
+                            <td style="border: 1px solid var(--kgi-gold); background: rgba(212,175,55,0.08); font-weight: bold; color: var(--kgi-gold-light);">6P、10P、20P</td>
                         </tr>
                         <tr>
                             <td style="font-weight: bold; background: #0f172a; border: 1px solid #334155;">體檢</td>
-                            <td>單獨累計免體檢</td>
-                            <td>單獨累計免體檢</td>
-                            <td>單獨累計免體檢</td>
-                            <td>G1類共同累積</td>
-                            <td style="color:#fde047; font-weight:bold;">第一類・原則免體檢</td>
+                            <td style="border: 1px solid #334155; font-size: 0.82rem; padding: 6px;">單獨累計<br>免體檢額度個別計算<br>不與其他險種累計</td>
+                            <td style="border: 1px solid #334155; font-size: 0.82rem; padding: 6px;">單獨累計<br>免體檢額度個別計算<br>不與其他險種累計</td>
+                            <td style="border: 1px solid #334155; font-size: 0.82rem; padding: 6px;">單獨累計<br>免體檢額度個別計算<br>不與其他險種累計</td>
+                            <td style="border: 1px solid #334155; font-size: 0.82rem; padding: 6px;">G1類 (免體檢額度更高)<br>需與其他 G1 類商品<br>共同累積危額</td>
+                            <td style="border: 1px solid var(--kgi-gold); background: rgba(212,175,55,0.08); font-size: 0.82rem; padding: 6px; font-weight: bold; color: #fde047;">
+                                第一類商品<br>原則上無體檢受理<br>亦無抽樣體檢
+                            </td>
                         </tr>
                         <tr>
                             <td style="font-weight: bold; background: #0f172a; border: 1px solid #334155;">TM值</td>
-                            <td>250</td>
-                            <td>250</td>
-                            <td>250</td>
-                            <td>350</td>
-                            <td style="color:#10b981; font-weight:bold; font-size:1.05rem;">400</td>
+                            <td style="border: 1px solid #334155;">250</td>
+                            <td style="border: 1px solid #334155;">250</td>
+                            <td style="border: 1px solid #334155;">250</td>
+                            <td style="border: 1px solid #334155;">350</td>
+                            <td style="border: 1px solid var(--kgi-gold); background: rgba(212,175,55,0.08); font-weight: 800; font-size: 1.05rem; color: #10b981;">400</td>
                         </tr>
                         <tr>
                             <td style="font-weight: bold; background: #0f172a; border: 1px solid #334155;">保費折扣</td>
-                            <td>最高 3.5%</td>
-                            <td>最高 3%</td>
-                            <td>最高 7%</td>
-                            <td>最高 5.5%</td>
-                            <td style="color:#10b981; font-weight:bold;">最高 8%</td>
+                            <td style="border: 1px solid #334155; font-size: 0.82rem;">最高 3.5%<br><span style="color:var(--text-muted);">轉帳1%、高保費1%~2.5%</span></td>
+                            <td style="border: 1px solid #334155; font-size: 0.82rem;">最高 3%<br><span style="color:var(--text-muted);">轉帳1%、高保費1%~2%</span></td>
+                            <td style="border: 1px solid #334155; font-size: 0.82rem;">最高 7%<br><span style="color:var(--text-muted);">轉帳1%、高保費4%~6%</span></td>
+                            <td style="border: 1px solid #334155; font-size: 0.82rem;">最高 5.5%<br><span style="color:var(--text-muted);">轉帳1%、高保費1%~4.5%</span></td>
+                            <td style="border: 1px solid var(--kgi-gold); background: rgba(212,175,55,0.08); font-size: 0.82rem; font-weight: bold; color: #10b981;">
+                                最高 8%<br><span style="font-weight:normal; color:#cbd5e1;">轉帳1%、電子保單1%<br>有效客戶1%、高保費2~5%</span>
+                            </td>
                         </tr>
                         <tr>
                             <td style="font-weight: bold; background: #0f172a; border: 1px solid #334155;">首年報酬</td>
-                            <td>15%</td>
-                            <td>6P:15% / 10P:23% / 20P:38%</td>
-                            <td>6P:15% / 10P:23% / 20P:38%</td>
-                            <td>24%</td>
-                            <td style="color:#fde047; font-weight:bold;">6P:13.5% / 10P:22.5% / 20P:37%</td>
+                            <td style="border: 1px solid #334155;">15%</td>
+                            <td style="border: 1px solid #334155; font-size: 0.82rem;">6P: 15%<br>10P: 23%<br>20P: 38%</td>
+                            <td style="border: 1px solid #334155; font-size: 0.82rem;">6P: 15%<br>10P: 23%<br>20P: 38%</td>
+                            <td style="border: 1px solid #334155;">24%</td>
+                            <td style="border: 1px solid var(--kgi-gold); background: rgba(212,175,55,0.08); font-size: 0.82rem; font-weight: bold; color: #fde047;">
+                                6P: 13.5%<br>10P: 22.5%<br>20P: 37%
+                            </td>
                         </tr>
                         <tr style="background: #0f172a; font-weight: bold; color: var(--kgi-gold-light);">
-                            <td colspan="6" style="padding: 8px; border: 1px solid #334155; text-align: left;">📊 40歲男・6年期範例比較（增額繳清）— 年末保障比與資產成長率：</td>
+                            <td colspan="6" style="padding: 8px; border: 1px solid #334155; text-align: left;">
+                                📊 40歲男・6年期範例比較（增額繳清）— 年末保障比與資產成長率：
+                            </td>
                         </tr>
                         <tr style="font-size: 0.78rem; background: #1e293b;">
-                            <td>年度 / 年齡</td>
-                            <td>2%折扣 (1萬美)<br>保障比 ｜ 成長</td>
-                            <td>3%折扣 (64.3萬台)<br>保障比 ｜ 成長</td>
-                            <td>5%折扣 (1萬美)<br>保障比 ｜ 成長</td>
-                            <td>2%折扣 (1萬美)<br>保障比 ｜ 成長</td>
-                            <td style="color:#fde047;">7%折扣 (5萬美)<br>保障比 ｜ 成長</td>
+                            <td style="border: 1px solid #334155; font-weight: bold;">年度 / 年齡</td>
+                            <td style="border: 1px solid #334155;">
+                                2%折扣 (實繳10,000美)<br>
+                                <span style="color:#6ee7b7;">保障比 ｜ 資產成長</span>
+                            </td>
+                            <td style="border: 1px solid #334155;">
+                                3%折扣 (實繳64.3萬台)<br>
+                                <span style="color:#6ee7b7;">保障比 ｜ 資產成長</span>
+                            </td>
+                            <td style="border: 1px solid #334155;">
+                                5%折扣 (實繳10,000美)<br>
+                                <span style="color:#6ee7b7;">保障比 ｜ 資產成長</span>
+                            </td>
+                            <td style="border: 1px solid #334155;">
+                                2%折扣 (實繳10,000美)<br>
+                                <span style="color:#6ee7b7;">保障比 ｜ 資產成長</span>
+                            </td>
+                            <td style="border: 1px solid var(--kgi-gold); background: rgba(212,175,55,0.12); font-weight: bold;">
+                                7%折扣 (實繳50,000美)<br>
+                                <span style="color:#fde047;">保障比 ｜ 資產成長</span>
+                            </td>
                         </tr>
                         <tr>
-                            <td style="font-weight: bold; background: #0f172a;">第 1 年 (40)</td>
-                            <td>10.87 ｜ 32.5%</td>
-                            <td>11.64 ｜ 46.3%</td>
-                            <td>15.30 ｜ 45.5%</td>
-                            <td>2.12 ｜ 44.5%</td>
-                            <td style="font-weight:bold;">1.14 ｜ 47.4%</td>
+                            <td style="font-weight: bold; background: #0f172a; border: 1px solid #334155;">第 1 年 (40歲)</td>
+                            <td style="border: 1px solid #334155;">10.87 ｜ 32.5%</td>
+                            <td style="border: 1px solid #334155;">11.64 ｜ 46.3%</td>
+                            <td style="border: 1px solid #334155;">15.30 ｜ 45.5%</td>
+                            <td style="border: 1px solid #334155;">2.12 ｜ 44.5%</td>
+                            <td style="border: 1px solid var(--kgi-gold); background: rgba(212,175,55,0.08); font-weight: bold;">1.14 ｜ 47.4%</td>
                         </tr>
                         <tr>
-                            <td style="font-weight: bold; background: #0f172a;">第 6 年 (45)</td>
-                            <td>6.19 ｜ 100.7%</td>
-                            <td>1.96 ｜ 97.5%</td>
-                            <td>2.64 ｜ 102.5%</td>
-                            <td>3.69 ｜ 99.9%</td>
-                            <td style="font-weight:bold; color:#10b981;">1.49 ｜ 107.7% (速度最快!)</td>
+                            <td style="font-weight: bold; background: #0f172a; border: 1px solid #334155;">第 6 年 (45歲)</td>
+                            <td style="border: 1px solid #334155;">6.19 ｜ 100.7%</td>
+                            <td style="border: 1px solid #334155;">1.96 ｜ 97.5%</td>
+                            <td style="border: 1px solid #334155;">2.64 ｜ 102.5%</td>
+                            <td style="border: 1px solid #334155;">3.69 ｜ 99.9%</td>
+                            <td style="border: 1px solid var(--kgi-gold); background: rgba(212,175,55,0.12); font-weight: bold; color: #10b981;">1.49 ｜ 107.7% (速度最快!)</td>
                         </tr>
                         <tr>
-                            <td style="font-weight: bold; background: #0f172a;">第 7 年 (46)</td>
-                            <td>6.20 ｜ 103.1%</td>
-                            <td>1.97 ｜ 100.5%</td>
-                            <td>2.68 ｜ 107.5%</td>
-                            <td>3.70 ｜ 104.5%</td>
-                            <td style="font-weight:bold;">1.55 ｜ 113.3%</td>
+                            <td style="font-weight: bold; background: #0f172a; border: 1px solid #334155;">第 7 年 (46歲)</td>
+                            <td style="border: 1px solid #334155;">6.20 ｜ 103.1%</td>
+                            <td style="border: 1px solid #334155;">1.97 ｜ 100.5%</td>
+                            <td style="border: 1px solid #334155;">2.68 ｜ 107.5%</td>
+                            <td style="border: 1px solid #334155;">3.70 ｜ 104.5%</td>
+                            <td style="border: 1px solid var(--kgi-gold); background: rgba(212,175,55,0.08); font-weight: bold;">1.55 ｜ 113.3%</td>
                         </tr>
                         <tr>
-                            <td style="font-weight: bold; background: #0f172a;">第 10 年 (49)</td>
-                            <td>6.25 ｜ 110.6%</td>
-                            <td>1.99 ｜ 107.1%</td>
-                            <td>2.81 ｜ 120.7%</td>
-                            <td>3.73 ｜ 116.2%</td>
-                            <td style="font-weight:bold;">1.76 ｜ 128.3%</td>
+                            <td style="font-weight: bold; background: #0f172a; border: 1px solid #334155;">第 10 年 (49歲)</td>
+                            <td style="border: 1px solid #334155;">6.25 ｜ 110.6%</td>
+                            <td style="border: 1px solid #334155;">1.99 ｜ 107.1%</td>
+                            <td style="border: 1px solid #334155;">2.81 ｜ 120.7%</td>
+                            <td style="border: 1px solid #334155;">3.73 ｜ 116.2%</td>
+                            <td style="border: 1px solid var(--kgi-gold); background: rgba(212,175,55,0.08); font-weight: bold;">1.76 ｜ 128.3%</td>
                         </tr>
                         <tr>
-                            <td style="font-weight: bold; background: #0f172a;">第 30 年 (69)</td>
-                            <td>7.51 ｜ 176.2%</td>
-                            <td>2.16 ｜ 158.2%</td>
-                            <td>3.78 ｜ 251.2%</td>
-                            <td>3.98 ｜ 222.1%</td>
-                            <td style="font-weight:bold; color:#10b981;">3.17 ｜ 293.6% (成長最強!)</td>
+                            <td style="font-weight: bold; background: #0f172a; border: 1px solid #334155;">第 30 年 (69歲)</td>
+                            <td style="border: 1px solid #334155;">7.51 ｜ 176.2%</td>
+                            <td style="border: 1px solid #334155;">2.16 ｜ 158.2%</td>
+                            <td style="border: 1px solid #334155;">3.78 ｜ 251.2%</td>
+                            <td style="border: 1px solid #334155;">3.98 ｜ 222.1%</td>
+                            <td style="border: 1px solid var(--kgi-gold); background: rgba(212,175,55,0.12); font-weight: bold; color: #10b981;">3.17 ｜ 293.6% (成長最強!)</td>
                         </tr>
                         <tr>
-                            <td style="font-weight: bold; background: #0f172a;">第 50 年 (89)</td>
-                            <td>7.78 ｜ 259.8%</td>
-                            <td>2.34 ｜ 210.2%</td>
-                            <td>5.09 ｜ 452.9%</td>
-                            <td>4.25 ｜ 348.0%</td>
-                            <td style="font-weight:bold; color:#10b981;">6.74 ｜ 672.5% (長線霸主!)</td>
+                            <td style="font-weight: bold; background: #0f172a; border: 1px solid #334155;">第 50 年 (89歲)</td>
+                            <td style="border: 1px solid #334155;">7.78 ｜ 259.8%</td>
+                            <td style="border: 1px solid #334155;">2.34 ｜ 210.2%</td>
+                            <td style="border: 1px solid #334155;">5.09 ｜ 452.9%</td>
+                            <td style="border: 1px solid #334155;">4.25 ｜ 348.0%</td>
+                            <td style="border: 1px solid var(--kgi-gold); background: rgba(212,175,55,0.12); font-weight: bold; color: #10b981;">6.74 ｜ 672.5% (長線霸主!)</td>
                         </tr>
                     </tbody>
                 </table>
@@ -1125,24 +1334,28 @@
         </div>
     </div>
 
-    <!-- ==================== 模組五 ==================== -->
+    <!-- ==================== 模組五：獎金模擬與闖關測驗 ==================== -->
     <div id="module5" class="module">
+                <!-- 業務獎金無上限完整級距表 + 模擬器 -->
         <div class="card" style="margin-bottom: 24px;">
             <div class="card-title">💰 業務專屬激勵：基富利「獎金無上限」級距表與試算（11/1~12/31 受理，2027.2工前核實）</div>
             
             <div class="sim-controls" style="align-items: center; margin-bottom: 16px;">
                 <div class="control-group" style="flex: 1; min-width: 260px;">
-                    <label style="font-size: 1rem; color: var(--kgi-gold);">🎯 選擇規劃年期：</label>
+                    <label style="font-size: 1rem; color: var(--kgi-gold);">🎯 請選擇規劃年期（連動整張估算表與拉桿）：</label>
                     <select id="bonusTerm" onchange="calcBonus()" style="font-size: 1rem; font-weight: bold; padding: 10px 14px; border-color: var(--kgi-gold);">
                         <option value="6">6 年期（首年報酬 FYC 13.5%）</option>
                         <option value="10" selected>10 年期（首年報酬 FYC 22.5% ｜ 簡報基準）</option>
                         <option value="20">20 年期（首年報酬 FYC 37.0%）</option>
                     </select>
                 </div>
+                <div style="flex: 2; font-size: 0.9rem; color: #cbd5e1; padding-left: 10px;">
+                    📌 <strong>TM值高達 400！</strong> 獎勵保費以美元計，基本 FYC 換算匯率採 32.5。專案加碼獎金於 2027.2工前核實發放，<strong>7萬美元以上無上限加發！</strong>
+                </div>
             </div>
 
             <div style="overflow-x:auto; margin-bottom:20px;">
-                <table>
+                <table id="bonusTable">
                     <thead>
                         <tr>
                             <th>累計獎勵保費 (美元)</th>
@@ -1152,37 +1365,37 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr id="row-tier1">
                             <td><strong>1.5萬(含) ~ 2.5萬</strong></td>
                             <td id="tb-fyc-1">109,687 元~</td>
                             <td style="color:#6ee7b7; font-weight:700;">+ 6,000 元</td>
                             <td id="tb-tot-1" style="font-weight:700;">115,687 元</td>
                         </tr>
-                        <tr>
+                        <tr id="row-tier2">
                             <td><strong>2.5萬(含) ~ 3.5萬</strong></td>
                             <td id="tb-fyc-2">182,812 元~</td>
                             <td style="color:#6ee7b7; font-weight:700;">+ 10,000 元</td>
                             <td id="tb-tot-2" style="font-weight:700;">192,812 元</td>
                         </tr>
-                        <tr>
+                        <tr id="row-tier3">
                             <td><strong>3.5萬(含) ~ 5萬</strong></td>
                             <td id="tb-fyc-3">255,937 元~</td>
                             <td style="color:#6ee7b7; font-weight:700;">+ 15,000 元</td>
                             <td id="tb-tot-3" style="font-weight:700;">270,937 元</td>
                         </tr>
-                        <tr>
+                        <tr id="row-tier4">
                             <td><strong>5萬(含) ~ 7萬</strong></td>
                             <td id="tb-fyc-4">365,625 元~</td>
                             <td style="color:#6ee7b7; font-weight:700;">+ 25,000 元</td>
                             <td id="tb-tot-4" style="font-weight:700;">390,625 元</td>
                         </tr>
-                        <tr style="background:rgba(16,185,129,0.12);">
+                        <tr id="row-tier5" style="background:rgba(16,185,129,0.12);">
                             <td><strong>7萬(含)以上</strong></td>
                             <td id="tb-fyc-5" style="font-weight:bold;">511,875 元~</td>
                             <td style="color:#10b981; font-weight:800;">+ 45,000 元</td>
                             <td id="tb-tot-5" style="font-weight:800; color:#fff;">556,875 元</td>
                         </tr>
-                        <tr style="background:rgba(212,175,55,0.18);">
+                        <tr id="row-tier6" style="background:rgba(212,175,55,0.18);">
                             <td><strong style="color:var(--kgi-gold-light);">🔥 7萬(含)以上，每增加 1 萬美元</strong></td>
                             <td id="tb-fyc-6" style="font-weight:bold;">585,000 元~</td>
                             <td style="color:var(--kgi-gold); font-weight:800;">每增1萬 再加發 7,000 元！</td>
@@ -1192,36 +1405,36 @@
                 </table>
             </div>
 
-            <!-- 手機觸控拉桿 -->
-            <div class="sim-controls" style="flex-direction: column; align-items: stretch; background:#0f172a; padding:18px; border-radius:12px; border:1px solid #334155;">
+                        <div class="sim-controls" style="align-items: center; flex-direction: column; align-items: stretch; background:#0f172a; padding:18px; border-radius:12px; border:1px solid #334155;">
                 <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; margin-bottom:12px;">
                     <label style="font-size:1.05rem; font-weight:700; color:var(--kgi-gold-light); margin:0;">
                         🎰 累計獎勵保費：<span id="premSliderVal" style="font-size:1.55rem; color:#fde047; font-weight:800;">70,000</span> 美元
                     </label>
                     <div style="display:flex; gap:8px;">
-                        <button type="button" class="step-btn" onclick="adjustSlider(-5000)">➖ 5千</button>
-                        <button type="button" class="step-btn" onclick="adjustSlider(5000)">➕ 5千</button>
+                        <button type="button" class="step-btn" onclick="adjustSlider(-5000)">➖ 5,000 美</button>
+                        <button type="button" class="step-btn" onclick="adjustSlider(5000)">➕ 5,000 美</button>
                     </div>
                 </div>
 
+                <!-- iPhone 100% Guaranteed Custom Touch Bar -->
                 <div id="touchSliderContainer" style="position:relative; width:100%; height:44px; display:flex; align-items:center; cursor:pointer; touch-action:none; -webkit-user-select:none; user-select:none;">
                     <div id="touchTrack" style="position:absolute; width:100%; height:12px; background:#334155; border-radius:6px; overflow:hidden;">
                         <div id="touchFill" style="height:100%; width:42.85%; background:linear-gradient(90deg, #d4af37, #fde047); border-radius:6px;"></div>
                     </div>
-                    <div id="touchThumb" style="position:absolute; left:calc(42.85% - 18px); width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg, #ffffff, #fde047); border:3px solid #d4af37; box-shadow:0 3px 10px rgba(0,0,0,0.6); display:flex; align-items:center; justify-content:center;">
+                    <div id="touchThumb" style="position:absolute; left:calc(42.85% - 18px); width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg, #ffffff, #fde047); border:3px solid #d4af37; box-shadow:0 3px 10px rgba(0,0,0,0.6); display:flex; align-items:center; justify-content:center; touch-action:none;">
                         <div style="width:10px; height:10px; border-radius:50%; background:#003670;"></div>
                     </div>
                 </div>
                 <input type="hidden" id="bonusSlider" value="70000">
 
                 <div style="margin-top:12px;">
-                    <span style="font-size:0.82rem; color:var(--text-muted); display:block; margin-bottom:8px;">📱 手機快捷點選級距門檻：</span>
+                    <span style="font-size:0.82rem; color:var(--text-muted); display:block; margin-bottom:8px;">📱 手機快捷點選級距門檻（直接點擊立即試算）：</span>
                     <div style="display:flex; gap:6px; flex-wrap:wrap;">
                         <button type="button" class="quick-chip" id="chip-15" onclick="setSlider(15000)">1.5萬</button>
                         <button type="button" class="quick-chip" id="chip-25" onclick="setSlider(25000)">2.5萬</button>
                         <button type="button" class="quick-chip" id="chip-35" onclick="setSlider(35000)">3.5萬</button>
                         <button type="button" class="quick-chip" id="chip-50" onclick="setSlider(50000)">5.0萬</button>
-                        <button type="button" class="quick-chip active" id="chip-70" onclick="setSlider(70000)">7.0萬</button>
+                        <button type="button" class="quick-chip active" id="chip-70" onclick="setSlider(70000)">7.0萬 (門檻)</button>
                         <button type="button" class="quick-chip" id="chip-100" onclick="setSlider(100000)">10.0萬</button>
                         <button type="button" class="quick-chip" id="chip-150" onclick="setSlider(150000)">15.0萬</button>
                     </div>
@@ -1230,68 +1443,105 @@
 
             <div class="stat-banner" style="margin-bottom:0;">
                 <div class="stat-box">
-                    <div class="label">預估基本 FYC</div>
-                    <div class="val" id="bFyc">511,875 元</div>
+                    <div class="label">達成獎勵級距</div>
+                    <div class="val" id="bTier" style="font-size:1.35rem;">7萬(含)以上</div>
+                    <div class="sub" id="bTierSub">滿7萬後每增1萬加發7,000元</div>
                 </div>
                 <div class="stat-box">
-                    <div class="label">專案加碼獎金</div>
+                    <div class="label" id="bFycLabel">預估基本 FYC (10年期 22.5%)</div>
+                    <div class="val" id="bFyc">511,875 元~</div>
+                    <div class="sub" id="bFycSub">依年期首年報酬率計算</div>
+                </div>
+                <div class="stat-box">
+                    <div class="label">專案加碼獎金 (新台幣)</div>
                     <div class="val" id="bBonus" style="color:#10b981;">45,000 元</div>
+                    <div class="sub">獎金無上限！</div>
                 </div>
                 <div class="stat-box">
-                    <div class="label">預估總佣獎合計</div>
+                    <div class="label">預估總佣獎合計 (新台幣)</div>
                     <div class="val" id="bTotal" style="color:#f59e0b;">556,875 元</div>
+                    <div class="sub">FYC + 專案加碼獎金</div>
                 </div>
             </div>
         </div>
 
+        <!-- 5題實戰闖關測驗 (Pure CSS Radio Engine - Works 100% in Quick Look!) -->
         <div class="card">
-            <div class="card-title">🏆 新商品通關測驗（點擊選項立即顯示答案與詳解）</div>
+            <div class="card-title">🏆 新商品通關測驗（直接點擊選項立即顯示紅綠燈與詳解！）</div>
 
+            <!-- Q1 -->
             <div class="quiz-item">
                 <div class="quiz-q">Q1. 《基富利》美元利率變動型終身壽險（2026.11登場）的「預定利率」與「宣告利率」分別為多少？</div>
                 <input type="radio" name="q1" id="q1a" class="quiz-radio ans-wrong">
                 <label for="q1a" class="quiz-opt-label" style="margin-bottom:8px;">A. 預定利率 2.0% / 宣告利率 4.0%</label>
+
                 <input type="radio" name="q1" id="q1b" class="quiz-radio ans-right">
                 <label for="q1b" class="quiz-opt-label" style="margin-bottom:8px;">B. 預定利率 2.5% / 宣告利率 4.3%</label>
+
                 <input type="radio" name="q1" id="q1c" class="quiz-radio ans-wrong">
                 <label for="q1c" class="quiz-opt-label">C. 預定利率 2.75% / 宣告利率 3.7%</label>
-                <div class="quiz-exp">✅ <strong>正確答案：B！</strong> 預定利率 2.50%，宣告利率 4.30%。</div>
+
+                <div class="quiz-exp">✅ <strong>正確答案：B！</strong> 基富利預定利率為 2.50%，目前宣告利率高達 4.30%，遠優於舊款金美/享富年年的 3.7%！</div>
             </div>
 
+            <!-- Q2 -->
             <div class="quiz-item">
-                <div class="quiz-q">Q2. 這次《基富利》的保費折減最高可達 8%，哪一項 1% 折扣重磅回歸？</div>
+                <div class="quiz-q">Q2. 這次《基富利》的保費折減最高可達 8%，請問除了「高保費最高5%」、「自動轉帳1%」、「電子保單1%」外，哪一項 1% 折扣重磅回歸？</div>
                 <input type="radio" name="q2" id="q2a" class="quiz-radio ans-wrong">
                 <label for="q2a" class="quiz-opt-label" style="margin-bottom:8px;">A. 信用卡扣款 1%</label>
+
                 <input type="radio" name="q2" id="q2b" class="quiz-radio ans-right">
-                <label for="q2b" class="quiz-opt-label">B. 既有/有效契約保戶 1%</label>
-                <div class="quiz-exp">✅ <strong>正確答案：B！</strong> 有效契約保戶 1% 折扣重磅回歸！</div>
+                <label for="q2b" class="quiz-opt-label" style="margin-bottom:8px;">B. 既有/有效契約保戶 1%</label>
+
+                <input type="radio" name="q2" id="q2c" class="quiz-radio ans-wrong">
+                <label for="q2c" class="quiz-opt-label">C. 團險眷屬折扣 1%</label>
+
+                <div class="quiz-exp">✅ <strong>正確答案：B！</strong> 「既有保戶（有效契約客戶）1% 折扣」重磅回歸！只要新契約要保人或被保險人於受理日已為凱基人壽其他有效個人險契約之要/被保人即可享有，湊齊最高 8% 折扣！</div>
             </div>
 
+            <!-- Q3 -->
             <div class="quiz-item">
                 <div class="quiz-q">Q3. 關於凱基獨創「享樂權」的申請規則，下列敘述何者正確？</div>
                 <input type="radio" name="q3" id="q3a" class="quiz-radio ans-wrong">
-                <label for="q3a" class="quiz-opt-label" style="margin-bottom:8px;">A. 只能在 55、60、65歲固定選擇</label>
+                <label for="q3a" class="quiz-opt-label" style="margin-bottom:8px;">A. 只能在 55歲、60歲、65歲三個固定時間點選擇</label>
+
                 <input type="radio" name="q3" id="q3b" class="quiz-radio ans-right">
-                <label for="q3b" class="quiz-opt-label">B. 繳費期滿且達 65~80歲可自由選擇；6年繳75/76歲不適用，執行後不得變更取消</label>
-                <div class="quiz-exp">✅ <strong>正確答案：B！</strong> 65~80歲自由選擇，且一旦執行不得撤銷或變更。</div>
+                <label for="q3b" class="quiz-opt-label" style="margin-bottom:8px;">B. 繳費期滿且達 65歲~未逾80歲可自由選擇享樂日；但6年繳投保年齡75、76歲者不適用，且執行後不得變更或取消</label>
+
+                <input type="radio" name="q3" id="q3c" class="quiz-radio ans-wrong">
+                <label for="q3c" class="quiz-opt-label">C. 執行享樂權領了3年生存金後，若覺得不需要金流，可以隨時申請取消改回純累積</label>
+
+                <div class="quiz-exp">✅ <strong>正確答案：B！</strong> 享樂權可在繳費期滿且 65~80歲間自由選擇（於首次可申請之享樂日60日前至30日前書面申請），轉換後91歲前按5%、91歲起按0.1%給付生存金；注意投保年齡75、76歲不適用，且一旦執行後即不可撤銷或變更！</div>
             </div>
 
+            <!-- Q4 -->
             <div class="quiz-item">
-                <div class="quiz-q">Q4. 為什麼客戶體況微恙時，《基富利》是開拓傳承客群的絕佳解方？</div>
+                <div class="quiz-q">Q4. 當客戶想做資產傳承，但因為「有些微體況或不想去醫院體檢」而無法投保《鑫長鴻》時，為什麼《基富利》是最佳解方？</div>
                 <input type="radio" name="q4" id="q4a" class="quiz-radio ans-right">
-                <label for="q4a" class="quiz-opt-label" style="margin-bottom:8px;">A. 屬於第一類傳統型商品，原則免體檢受理</label>
+                <label for="q4a" class="quiz-opt-label" style="margin-bottom:8px;">A. 基富利屬於「第一類商品」，基富利屬於「第一類商品」，原則免體檢受理（惟告知病史或理賠史等核保仍得要求就診資料或體檢）</label>
+
                 <input type="radio" name="q4" id="q4b" class="quiz-radio ans-wrong">
-                <label for="q4b" class="quiz-opt-label">B. 因為基富利不需要任何健康告知</label>
-                <div class="quiz-exp">✅ <strong>正確答案：A！</strong> 屬於第一類商品，原則免體檢受理，方便高額規劃。</div>
+                <label for="q4b" class="quiz-opt-label" style="margin-bottom:8px;">B. 因為基富利沒有身故保障，所以不用體檢</label>
+
+                <input type="radio" name="q4" id="q4c" class="quiz-radio ans-wrong">
+                <label for="q4c" class="quiz-opt-label">C. 基富利屬於第三類單獨累計商品，保額上限只有10萬美元</label>
+
+                <div class="quiz-exp">✅ <strong>正確答案：A！</strong> 根據 AG 通路免體檢額度分類表，基富利列為「第一類傳統型商品」，原則免體檢受理！且第 30 年、第 50 年的資產成長率（293.6%、672.5%）甚至超越鑫長鴻，是開拓傳承客群的最強利器！</div>
             </div>
 
+            <!-- Q5 -->
             <div class="quiz-item">
-                <div class="quiz-q">Q5. 以 45歲男投保《基富利》6年期為例，第幾年度末即可達成保本？</div>
+                <div class="quiz-q">Q5. 以 45歲男性投保《基富利》6年期（享最高 8% 折扣、回饋金選增額繳清、假設宣告 4.3%）為例，請問第幾年度末即可達成「保本（現金價值 ＞ 累積實繳保費）」？</div>
                 <input type="radio" name="q5" id="q5a" class="quiz-radio ans-wrong">
                 <label for="q5a" class="quiz-opt-label" style="margin-bottom:8px;">A. 第 3 年度末</label>
+
                 <input type="radio" name="q5" id="q5b" class="quiz-radio ans-right">
-                <label for="q5b" class="quiz-opt-label">B. 第 5 年度末（達 104%）</label>
-                <div class="quiz-exp">✅ <strong>正確答案：B！</strong> 第 5 年度末即保本（104%）。</div>
+                <label for="q5b" class="quiz-opt-label" style="margin-bottom:8px;">B. 第 5 年度末（還沒繳完就保本，達 104%！）</label>
+
+                <input type="radio" name="q5" id="q5c" class="quiz-radio ans-wrong">
+                <label for="q5c" class="quiz-opt-label">C. 第 8 年度末</label>
+
+                <div class="quiz-exp">✅ <strong>正確答案：B！</strong> 6年繳在第 5 年度末（累積實繳50萬美元），年度末現金價值即達 519,232 美元（104%），第 5 年即保本！第 6 年滿期更達 109%！</div>
             </div>
         </div>
     </div>
@@ -1299,10 +1549,11 @@
 </div>
 
 <footer>
-    ※ 本互動教學系統僅供內部教育訓練與業務同仁學習研討使用。
+    ※ 本互動教學系統係根據「基富利_1029商顧會議」與「北二處經理會議_新商品推動」簡報資料編製，僅供公司內部教育訓練與業務同仁學習研討使用，不得擅自重製、改作或直接作為提供客戶銷售之文件。相關商品內容請依保單條款與公司正式公告為準。
 </footer>
 
 <script>
+    // Optional JS enhancements when opened in full Safari/Chrome browser
     function calcDiscount() {
         const term = parseInt(document.getElementById('discTerm').value);
         const prem = parseFloat(document.getElementById('rawPrem').value) || 0;
@@ -1311,21 +1562,26 @@
         const chkOld = document.getElementById('chkOld').checked ? 1 : 0;
 
         let highDisc = 0;
+        let ruleText = "";
+
         if (term === 6) {
-            if (prem >= 100000) highDisc = 5;
-            else if (prem >= 30000) highDisc = 4;
-            else if (prem >= 12000) highDisc = 3;
-            else if (prem >= 3000) highDisc = 2;
+            if (prem >= 100000) { highDisc = 5; ruleText = "6P 保費 ≧ 10萬美元：享最高 5%"; }
+            else if (prem >= 30000) { highDisc = 4; ruleText = "6P 保費 3萬~10萬美元：享 4%"; }
+            else if (prem >= 12000) { highDisc = 3; ruleText = "6P 保費 1.2萬~3萬美元：享 3%"; }
+            else if (prem >= 3000) { highDisc = 2; ruleText = "6P 保費 0.3萬~1.2萬美元：享 2%"; }
+            else { highDisc = 0; ruleText = "6P 未達 3,000 美元高保費門檻"; }
         } else if (term === 10) {
-            if (prem >= 50000) highDisc = 5;
-            else if (prem >= 15000) highDisc = 4;
-            else if (prem >= 7000) highDisc = 3;
-            else if (prem >= 1500) highDisc = 2;
+            if (prem >= 50000) { highDisc = 5; ruleText = "10P 保費 ≧ 5萬美元：享最高 5%"; }
+            else if (prem >= 15000) { highDisc = 4; ruleText = "10P 保費 1.5萬~5萬美元：享 4%"; }
+            else if (prem >= 7000) { highDisc = 3; ruleText = "10P 保費 0.7萬~1.5萬美元：享 3%"; }
+            else if (prem >= 1500) { highDisc = 2; ruleText = "10P 保費 0.15萬~0.7萬美元：享 2%"; }
+            else { highDisc = 0; ruleText = "10P 未達 1,500 美元高保費門檻"; }
         } else if (term === 20) {
-            if (prem >= 12000) highDisc = 5;
-            else if (prem >= 5000) highDisc = 4;
-            else if (prem >= 2500) highDisc = 3;
-            else if (prem >= 1200) highDisc = 2;
+            if (prem >= 12000) { highDisc = 5; ruleText = "20P 保費 ≧ 1.2萬美元：享最高 5%"; }
+            else if (prem >= 5000) { highDisc = 4; ruleText = "20P 保費 0.5萬~1.2萬美元：享 4%"; }
+            else if (prem >= 2500) { highDisc = 3; ruleText = "20P 保費 0.25萬~0.5萬美元：享 3%"; }
+            else if (prem >= 1200) { highDisc = 2; ruleText = "20P 保費 0.12萬~0.25萬美元：享 2%"; }
+            else { highDisc = 0; ruleText = "20P 未達 1,200 美元高保費門檻"; }
         }
 
         const totalDisc = highDisc + chkBank + chkEpol + chkOld;
@@ -1333,11 +1589,16 @@
         const saveYr = Math.round(prem - netPrem);
         const saveTotal = saveYr * term;
 
+        document.getElementById('resHighDisc').innerText = highDisc + "%";
+        document.getElementById('resHighRule').innerText = ruleText;
         document.getElementById('resTotalDisc').innerText = totalDisc + "%";
         document.getElementById('resNetPrem').innerText = "$" + netPrem.toLocaleString();
+        document.getElementById('resSaveYr').innerText = "每年立省 $" + saveYr.toLocaleString() + " 美元";
         document.getElementById('resSaveTotal').innerText = "$" + saveTotal.toLocaleString();
     }
 
+    
+    
     let currentPremVal = 70000;
     const minPrem = 10000;
     const maxPrem = 150000;
@@ -1353,6 +1614,7 @@
         if (fill) fill.style.width = percent + '%';
         if (thumb) thumb.style.left = `calc(${percent}% - 18px)`;
 
+        // Highlight chip
         document.querySelectorAll('.quick-chip').forEach(c => c.classList.remove('active'));
         if (val === 15000 && document.getElementById('chip-15')) document.getElementById('chip-15').classList.add('active');
         if (val === 25000 && document.getElementById('chip-25')) document.getElementById('chip-25').classList.add('active');
@@ -1385,12 +1647,14 @@
             let pos = (clientX - rect.left) / rect.width;
             pos = Math.min(1, Math.max(0, pos));
             let rawVal = minPrem + pos * (maxPrem - minPrem);
+            // snap to 5000 step
             let stepVal = Math.round(rawVal / 5000) * 5000;
             stepVal = Math.min(maxPrem, Math.max(minPrem, stepVal));
             updateTouchSliderUI(stepVal);
             calcBonus();
         }
 
+        // Touch events for iPhone Safari
         container.addEventListener('touchstart', function(e) {
             isDragging = true;
             handleMove(e.touches[0].clientX);
@@ -1408,6 +1672,7 @@
             isDragging = false;
         });
 
+        // Mouse events for Desktop
         container.addEventListener('mousedown', function(e) {
             isDragging = true;
             handleMove(e.clientX);
@@ -1426,45 +1691,111 @@
         });
     }
 
-    function calcBonus() {
+function calcBonus() {
         const termSelect = document.getElementById('bonusTerm');
         const term = termSelect ? parseInt(termSelect.value) : 10;
-        const prem = currentPremVal;
+        const prem = currentPremVal || parseInt(document.getElementById('bonusSlider').value) || 70000;
         document.getElementById('premSliderVal').innerText = prem.toLocaleString();
 
+        // Rates: 6P = 13.5%, 10P = 22.5%, 20P = 37.0% (Exchange rate = 32.5)
         const rateMap = { 6: 0.135, 10: 0.225, 20: 0.370 };
         const fycRate = rateMap[term] || 0.225;
         const exRate = 32.5;
-        const mult = exRate * fycRate;
+        const mult = exRate * fycRate; // TWD per USD premium
 
-        let fyc = Math.round(prem * mult);
-        let bonus = 0;
+        // Update the table cells to reflect chosen term dynamically
+        const t1_fyc = Math.round(15000 * mult);
+        const t2_fyc = Math.round(25000 * mult);
+        const t3_fyc = Math.round(35000 * mult);
+        const t4_fyc = Math.round(50000 * mult);
+        const t5_fyc = Math.round(70000 * mult);
+        const t6_fyc = Math.round(80000 * mult);
 
-        if (prem < 15000) {
-            bonus = 0;
-        } else if (prem < 25000) {
-            bonus = 6000;
-        } else if (prem < 35000) {
-            bonus = 10000;
-        } else if (prem < 50000) {
-            bonus = 15000;
-        } else if (prem < 70000) {
-            bonus = 25000;
-        } else {
-            const extraTenK = Math.floor((prem - 70000) / 10000);
-            bonus = 45000 + (extraTenK * 7000);
+        if (document.getElementById('tb-fyc-1')) {
+            document.getElementById('tb-fyc-1').innerText = t1_fyc.toLocaleString() + " 元~";
+            document.getElementById('tb-tot-1').innerText = (t1_fyc + 6000).toLocaleString() + " 元";
+
+            document.getElementById('tb-fyc-2').innerText = t2_fyc.toLocaleString() + " 元~";
+            document.getElementById('tb-tot-2').innerText = (t2_fyc + 10000).toLocaleString() + " 元";
+
+            document.getElementById('tb-fyc-3').innerText = t3_fyc.toLocaleString() + " 元~";
+            document.getElementById('tb-tot-3').innerText = (t3_fyc + 15000).toLocaleString() + " 元";
+
+            document.getElementById('tb-fyc-4').innerText = t4_fyc.toLocaleString() + " 元~";
+            document.getElementById('tb-tot-4').innerText = (t4_fyc + 25000).toLocaleString() + " 元";
+
+            document.getElementById('tb-fyc-5').innerText = t5_fyc.toLocaleString() + " 元~";
+            document.getElementById('tb-tot-5').innerText = (t5_fyc + 45000).toLocaleString() + " 元";
+
+            document.getElementById('tb-fyc-6').innerText = t6_fyc.toLocaleString() + " 元~";
+            document.getElementById('tb-tot-6').innerText = (t6_fyc + 52000).toLocaleString() + " 元起";
         }
 
+        let tier = "";
+        let fyc = 0;
+        let bonus = 0;
+        let activeRowId = "";
+
+        if (prem < 15000) {
+            tier = "未達 1.5 萬門檻";
+            fyc = Math.round(prem * mult);
+            bonus = 0;
+        } else if (prem < 25000) {
+            tier = "1.5萬(含) ~ 2.5萬";
+            fyc = Math.round(prem * mult);
+            bonus = 6000;
+            activeRowId = "row-tier1";
+        } else if (prem < 35000) {
+            tier = "2.5萬(含) ~ 3.5萬";
+            fyc = Math.round(prem * mult);
+            bonus = 10000;
+            activeRowId = "row-tier2";
+        } else if (prem < 50000) {
+            tier = "3.5萬(含) ~ 5萬";
+            fyc = Math.round(prem * mult);
+            bonus = 15000;
+            activeRowId = "row-tier3";
+        } else if (prem < 70000) {
+            tier = "5萬(含) ~ 7萬";
+            fyc = Math.round(prem * mult);
+            bonus = 25000;
+            activeRowId = "row-tier4";
+        } else {
+            const extraTenK = Math.floor((prem - 70000) / 10000);
+            tier = extraTenK > 0 ? `7萬以上 (+${extraTenK}萬)` : "7萬(含)以上";
+            fyc = Math.round(prem * mult);
+            bonus = 45000 + (extraTenK * 7000);
+            activeRowId = extraTenK > 0 ? "row-tier6" : "row-tier5";
+        }
+
+        // Highlight matching row in the table
+        ['row-tier1', 'row-tier2', 'row-tier3', 'row-tier4', 'row-tier5', 'row-tier6'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                if (id === activeRowId) {
+                    el.style.outline = "2px solid #f59e0b";
+                    el.style.backgroundColor = "rgba(245, 158, 11, 0.2)";
+                } else {
+                    el.style.outline = "none";
+                    if (id === 'row-tier5') el.style.backgroundColor = "rgba(16,185,129,0.12)";
+                    else if (id === 'row-tier6') el.style.backgroundColor = "rgba(212,175,55,0.18)";
+                    else el.style.backgroundColor = "";
+                }
+            }
+        });
+
         const total = fyc + bonus;
-        document.getElementById('bFyc').innerText = fyc.toLocaleString() + " 元";
+        document.getElementById('bTier').innerText = tier;
+        if (document.getElementById('bFycLabel')) {
+            document.getElementById('bFycLabel').innerText = `預估基本 FYC (${term}年期 ${(fycRate*100).toFixed(1)}%)`;
+        }
+        document.getElementById('bFyc').innerText = fyc.toLocaleString() + " 元~";
         document.getElementById('bBonus').innerText = bonus.toLocaleString() + " 元";
         document.getElementById('bTotal').innerText = total.toLocaleString() + " 元";
     }
-
-    document.addEventListener('DOMContentLoaded', function() {
-        initTouchSlider();
-        calcBonus();
-    });
 </script>
+
+
+    document.addEventListener('DOMContentLoaded', function() { initTouchSlider(); calcBonus(); });
 </body>
 </html>
